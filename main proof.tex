@@ -280,7 +280,7 @@ The decisions that a facility manager can make is when and how much shall be inj
 
 An admissible control policy is a pair $(L_t,U_t)$ such that $Q_t \in [Q_{\min},Q_{\max}]$ for all $t$. $\mathcal{U}$ is used to denote all admissible policies.\\
 
-Both injection and withdraw generate costs. Let $\lambda(q)dq$ be the cost of injecting $dq$ unit when the storage has $q$ unit already and $\mu(q)dq$ of withdrawing. We assume that $\lambda(q)$ and $\mu(q)$ are continuous. It is often easier to inject when empty and to withdraw when full. Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing. However, it is worth to note that \textbf{the monotonicity is not required for proof}.\\
+Both injection and withdraw generate costs. Let $\lambda(q)dq$ be the cost of injecting $dq$ unit when the storage has $q$ unit already and $\mu(q)dq$ of withdrawing. We assume that $\lambda(q)$ and $\mu(q)$ are continuous. It is often easier to inject when empty and to withdraw when full. Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing.\\
 
 The objective is to maximize discounted infinite-horizon discounted cash flows. Taking a discount factor $\beta \in (0,1)$, 
 
@@ -290,15 +290,41 @@ The objective is to maximize discounted infinite-horizon discounted cash flows. 
 
 where $X_0 =x$ and $Q_0 = q$. What's more,
 \begin{equation}
-  \mu(Q^1_t) = \frac{1}{U_t - U_{t-}}\int_{U_{t-}}^{U_t} \mu(q) dq
+  Q^1_t = \mu^{-1}\left(\frac{1}{U_t - U_{t-}}\int_{U_{t-}}^{U_t} \mu(q) dq\right)
 \end{equation}
 
 \begin{equation}
-  \lambda(Q^2_t) = \frac{1}{L_t - L_{t-}}\int_{L_{t-}}^{L_t} \lambda(q) dq.
+  Q^2_t = \lambda^{-1}\left(\frac{1}{L_t - L_{t-}}\int_{L_{t-}}^{L_t} \lambda(q) dq\right).
 \end{equation}
 
 
  Since $V(x,q)$ is the maximum value that a facility manager can obtain from a storage facility, this is the value of the facility when the current spot price is $e^x$ and the amount is $q$.
+
+\section{No Transaction Cost}
+No transaction cost means that $\lambda$ (buying cost) $\equiv 0$ and $\mu$ (selling cost) $\equiv 0$. Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Whenever the drift of $X_t$ exceeds interest rate, we should buy. Vice versa. Let this critical point be $X^*$, then
+
+\begin{equation*}
+  \kappa (\alpha - X^*) = r \Rightarrow X^* = \alpha - \frac{r}{\kappa}
+\end{equation*}
+
+The optimal strategy is as following
+
+\begin{itemize}
+  \item If $X_t > X^*$, sell to empty.
+  \item If $X_t \leq X^*$, buy to full.
+\end{itemize}
+
+\section{Constant Transaction Cost}
+Let the constant transaction cost be $\lambda$ (buying cost) and $\mu$ (selling cost). Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Define the following two value functions.
+
+\begin{equation*}
+  
+\end{equation*}
+
+
+
+
+
 
 \section{Intuition}
 

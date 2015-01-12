@@ -356,8 +356,25 @@ Because $\mathcal{L}V(x,q)$, $V_q(x,q) - e^x - \lambda(q)$ and $-V_q(x,q) + e^x 
 
 \subsection{Algorithm}
 \begin{enumerate}
-  \item Find a large enough $x_0$. Sell at any point in the region $\{(x,q)|x\geq x_0,~Q_{\min} <q \leq Q_{\max}\}$ and hold at any other point.
-  \item Solve the fixed boundary problem and move down the selling boundary to the maximal selling profitable points.
+  \item Find a large enough $x_0$ such that $S^* \supset \{(x,q)|x\geq x_0,~Q_{\min} <q \leq Q_{\max}\}$. The selling region $S^0$ is set to be the latter term and holding region $H^0 = (S^0)^c$. $B^0$ is taken to be $\emptyset$.   
+  \item $n$ starts as 0. Keep doing the following steps until either regions get converged or $B^n \neq \emptyset$, 
+  \begin{enumerate}
+  \item Solve the fixed boundary problem with $(H^n,S^n,B^n)$.
+  \item Move down the selling boundary $\partial S^n$ to the maximal selling profitable points to have $S^{n+1}$.
+  \item Take positive maximal buying profits points as $B^{n+1}$. If none, $B^{n+1} = \emptyset$.
+  \item $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
+  \item $n = n + 1$.
+  \end{enumerate}
+\item If previous loop ends because of $B^{n} \neq \emptyset$, keep doing the following  until convergence.
+  \begin{enumerate}
+  \item Solve the fixed boundary problem with $(H^n,S^n,B^n)$.
+  \item If $n$ is odd, move down the selling boundary $\partial S^n$ to the maximal selling profitable points to have $S^{n+1}$ and $B^{n+1} = B^{n}$.
+  \item If $n$ is even, move up and down buying boundary $\partial B^{n+1}$ to the maximal buying profitable points to have $B^{n+1}$ and $S^{n+1} = S^{n}$.
+  \item $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
+  \item $n = n + 1$. 
+   \end{enumerate}
+
+  
 \end{enumerate}
 
 

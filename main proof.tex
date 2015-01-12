@@ -280,7 +280,7 @@ The decisions that a facility manager can make is when and how much shall be inj
 
 An admissible control policy is a pair $(L_t,U_t)$ such that $Q_t \in [Q_{\min},Q_{\max}]$ for all $t$. $\mathcal{U}$ is used to denote all admissible policies.\\
 
-Both injection and withdraw generate costs. Let $\lambda(q)dq$ be the cost of injecting $dq$ unit when the storage has $q$ unit already and $\mu(q)dq$ of withdrawing. We assume that $\lambda(q)$ and $\mu(q)$ are continuous. It is often easier to inject when empty and to withdraw when full. Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing.\\
+Both injection and withdraw generate costs. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ unit already and $\mu(q)dq$ of withdrawing. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{L_{t-}}^{L_t} \lambda(q) dq$ and $\int_{U_{t-}}^{U_t} \mu(q) dq$ respectfully. We assume that $\lambda(q)$ and $\mu(q)$ are continuous. It is often easier to inject when empty and to withdraw when full. Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing.\\
 
 The objective is to maximize discounted infinite-horizon discounted cash flows. Taking a discount factor $\beta \in (0,1)$, 
 
@@ -288,7 +288,7 @@ The objective is to maximize discounted infinite-horizon discounted cash flows. 
   V(x,q) = \max_{(L,U) \in \mathcal{U}} \mathbb{E}_{x,q} \left(\int_{0}^{\infty} e^{-\beta t}(e^{X_t} - \mu(Q^1_t))dU_t - \int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \lambda(Q^2_t))dL_t\right)
 \end{equation}
 
-where $X_0 =x$ and $Q_0 = q$. What's more,
+where $X_0 =x$ and $Q_0 = q$. $Q^1_t$ and $Q^2_t$ are introduced as following to make notations simpler,
 \begin{equation}
   Q^1_t = \mu^{-1}\left(\frac{1}{U_t - U_{t-}}\int_{U_{t-}}^{U_t} \mu(q) dq\right)
 \end{equation}
@@ -298,7 +298,7 @@ where $X_0 =x$ and $Q_0 = q$. What's more,
 \end{equation}
 
 
- Since $V(x,q)$ is the maximum value that a facility manager can obtain from a storage facility, this is the value of the facility when the current spot price is $e^x$ and the amount is $q$.
+ Since $V(x,q)$ is the maximum value that a facility manager can obtain from a storage facility, this is the value of the facility when the current spot log price is $x$ and the amount is $q$.
 
 \section{No Transaction Cost}
 No transaction cost means that $\lambda$ (buying cost) $\equiv 0$ and $\mu$ (selling cost) $\equiv 0$. Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Whenever the drift of $X_t$ exceeds interest rate, we should buy. Vice versa. Let this critical point be $X^*$, then
@@ -315,13 +315,23 @@ The optimal strategy is as following
 \end{itemize}
 
 \section{Constant Transaction Cost}
-Let the constant transaction cost be $\lambda$ (buying cost) and $\mu$ (selling cost). Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Define the following two value functions.
+Let the constant transaction cost be $\lambda$ (buying cost) and $\mu$ (selling cost). Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Introduce the following two functions,
 
 \begin{equation*}
-  
+  V(x) = \sup_{\tau \in \mathcal{T}} \mathbb{E}_x\{e^{-r\tau}(e^{X_\tau} - \mu)\}
 \end{equation*}
 
+\begin{equation*}
+  J(x) = \sup_{\nu \in \mathcal{T}} \mathbb{E}_x \{e^{-r\nu}(V(x^\nu) - e^{X_\nu} - \lambda) \}.
+\end{equation*}
 
+$V(x)$ is the maximum value that can be gained from 1 unit commodity when log price is $x$. $J(x)$ is the value of an empty storage when log price is $x$. Tim Leung et al.(2014) use concavity to prove that the optimal policy for $V(x)$ is an upper threshold policy. $d^*$ is denoted as the threshold. Using similar idea, they also prove the optimal policy for $J(x)$ is an upper-lower threshold policy. $a^*$ and $b^*$ are denoted as the lower and upper threshold. Based on the values of $a^*$ and $b^*$, there are two cases.
+
+
+\begin{enumerate}
+    \item $a^* = -\infty$ and $b^* = \infty$ which is equivalent as $J(x) = 0$. In this case, it is not optimal enter the market at all.
+    \item $-\infty < a^* < b^* < d^*< \infty$. This means that commodity is bought when log price is within $[a^*,b^*]$ and will be sold when log price achieves $d^*$.
+\end{enumerate}
 
 
 

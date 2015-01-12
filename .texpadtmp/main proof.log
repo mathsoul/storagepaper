@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  18 DEC 2014 21:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  11 JAN 2015 16:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -293,80 +293,30 @@ File: omsppl.fd
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 313.
-
-./main proof.tex:321: Missing $ inserted.
-<inserted text> 
-                $
-l.321 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./main proof.tex:321: Display math should end with $$.
-<to be read again> 
-                   \par 
-l.321 
-      
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-
-./main proof.tex:322: LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.322 \end{equation*}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./main proof.tex:322: Missing $ inserted.
-<inserted text> 
-                $
-l.322 \end{equation*}
-                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./main proof.tex:322: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.322 \end{equation*}
-                     
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 331--332
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
 
  []
 
-[2]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 333.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 343.
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
  []
 
@@ -377,15 +327,15 @@ Package epstopdf Info: Source file: <SnSn+1Bn.eps>
 (epstopdf)                    date: 2014-10-09 13:50:14
 (epstopdf)                    size: 15882 bytes
 (epstopdf)             Command: <repstopdf --outfile=SnSn+1Bn-eps-converted-to.pdf SnSn+1Bn.eps>
-(epstopdf)             \includegraphics on input line 369.
+(epstopdf)             \includegraphics on input line 379.
 Package epstopdf Info: Output file is already uptodate.
 <SnSn+1Bn-eps-converted-to.pdf, id=22, 420.57124pt x 316.18124pt>
 File: SnSn+1Bn-eps-converted-to.pdf Graphic file (type pdf)
  <use SnSn+1Bn-eps-converted-to.pdf>
-Package pdftex.def Info: SnSn+1Bn-eps-converted-to.pdf used on input line 369.
+Package pdftex.def Info: SnSn+1Bn-eps-converted-to.pdf used on input line 379.
 (pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
 
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 369--370
+Overfull \hbox (60.57022pt too wide) in paragraph at lines 379--380
 [][] 
  []
 
@@ -396,29 +346,29 @@ Package epstopdf Info: Source file: <deltaV.eps>
 (epstopdf)                    date: 2014-10-09 13:56:34
 (epstopdf)                    size: 16915 bytes
 (epstopdf)             Command: <repstopdf --outfile=deltaV-eps-converted-to.pdf deltaV.eps>
-(epstopdf)             \includegraphics on input line 385.
+(epstopdf)             \includegraphics on input line 395.
 Package epstopdf Info: Output file is already uptodate.
 <deltaV-eps-converted-to.pdf, id=23, 420.57124pt x 316.18124pt>
 File: deltaV-eps-converted-to.pdf Graphic file (type pdf)
  <use deltaV-eps-converted-to.pdf>
-Package pdftex.def Info: deltaV-eps-converted-to.pdf used on input line 385.
+Package pdftex.def Info: deltaV-eps-converted-to.pdf used on input line 395.
 (pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
 
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 385--386
+Overfull \hbox (60.57022pt too wide) in paragraph at lines 395--396
 [][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 410--411
-
- []
-
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 428--429
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
  []
 
 [5 <./SnSn+1Bn-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
+
+ []
+
+[6 <./deltaV-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Isolated.eps>
 (epstopdf)                    date: 2014-10-09 21:51:37
 (epstopdf)                    size: 17017 bytes
@@ -426,15 +376,15 @@ Package epstopdf Info: Source file: <Isolated.eps>
 (epstopdf)                    date: 2014-10-09 21:57:15
 (epstopdf)                    size: 11604 bytes
 (epstopdf)             Command: <repstopdf --outfile=Isolated-eps-converted-to.pdf Isolated.eps>
-(epstopdf)             \includegraphics on input line 449.
+(epstopdf)             \includegraphics on input line 459.
 Package epstopdf Info: Output file is already uptodate.
- <Isolated-eps-converted-to.pdf, id=36, 420.57124pt x 316.18124pt>
+ <Isolated-eps-converted-to.pdf, id=49, 420.57124pt x 316.18124pt>
 File: Isolated-eps-converted-to.pdf Graphic file (type pdf)
  <use Isolated-eps-converted-to.pdf>
-Package pdftex.def Info: Isolated-eps-converted-to.pdf used on input line 449.
+Package pdftex.def Info: Isolated-eps-converted-to.pdf used on input line 459.
 (pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
 
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 449--450
+Overfull \hbox (60.57022pt too wide) in paragraph at lines 459--460
 [][] 
  []
 
@@ -445,28 +395,29 @@ Package epstopdf Info: Source file: <NotIsolated.eps>
 (epstopdf)                    date: 2014-10-09 21:57:17
 (epstopdf)                    size: 9490 bytes
 (epstopdf)             Command: <repstopdf --outfile=NotIsolated-eps-converted-to.pdf NotIsolated.eps>
-(epstopdf)             \includegraphics on input line 454.
+(epstopdf)             \includegraphics on input line 464.
 Package epstopdf Info: Output file is already uptodate.
-<NotIsolated-eps-converted-to.pdf, id=37, 420.57124pt x 316.18124pt>
+<NotIsolated-eps-converted-to.pdf, id=50, 420.57124pt x 316.18124pt>
 File: NotIsolated-eps-converted-to.pdf Graphic file (type pdf)
  <use NotIsolated-eps-converted-to.pdf>
-Package pdftex.def Info: NotIsolated-eps-converted-to.pdf used on input line 454.
+Package pdftex.def Info: NotIsolated-eps-converted-to.pdf used on input line 464.
 (pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
 
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 454--455
+Overfull \hbox (60.57022pt too wide) in paragraph at lines 464--465
 [][] 
  []
 
-[6 <./deltaV-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 465--466
+[7 <./Isolated-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 
  []
 
-[7 <./Isolated-eps-converted-to.pdf>] [8 <./NotIsolated-eps-converted-to.pdf>]
-Overfull \hbox (11.67497pt too wide) in paragraph at lines 499--500
+[8 <./NotIsolated-eps-converted-to.pdf>]
+Overfull \hbox (11.67497pt too wide) in paragraph at lines 509--510
 []\T1/ppl/m/n/10.95 (-20) In sum, $\OMS/zplm/m/n/10.95 L\OT1/zplm/m/n/10.95 ^^A\OML/zplm/m/it/10.95 V[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/ppl/m/n/10.95 (-20) , 0\OT1/zplm/m/n/10.95 ) = \OT1/ppl/m/n/10.95 (-20) 0 \OMS/zplm/m/n/10.95 8\OML/zplm/m/it/10.95 x \OMS/zplm/m/n/10.95 2 \U/fplmbb/m/n/10.95 R$\T1/ppl/m/n/10.95 (-20) . By pre-vi-ous ar-gu-ment, $\OT1/zplm/m/n/10.95 ^^A\OML/zplm/m/it/10.95 V[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/ppl/m/n/10.95 (-20) , \OML/zplm/m/it/10.95 q\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^U
  []
 
+[9]
 Package epstopdf Info: Source file: <deltaVstage2.eps>
 (epstopdf)                    date: 2014-10-09 21:54:50
 (epstopdf)                    size: 17303 bytes
@@ -474,63 +425,59 @@ Package epstopdf Info: Source file: <deltaVstage2.eps>
 (epstopdf)                    date: 2014-10-09 21:57:18
 (epstopdf)                    size: 12500 bytes
 (epstopdf)             Command: <repstopdf --outfile=deltaVstage2-eps-converted-to.pdf deltaVstage2.eps>
-(epstopdf)             \includegraphics on input line 529.
+(epstopdf)             \includegraphics on input line 539.
 Package epstopdf Info: Output file is already uptodate.
-<deltaVstage2-eps-converted-to.pdf, id=70, 420.57124pt x 316.18124pt>
+ <deltaVstage2-eps-converted-to.pdf, id=73, 420.57124pt x 316.18124pt>
 File: deltaVstage2-eps-converted-to.pdf Graphic file (type pdf)
  <use deltaVstage2-eps-converted-to.pdf>
-Package pdftex.def Info: deltaVstage2-eps-converted-to.pdf used on input line 529.
+Package pdftex.def Info: deltaVstage2-eps-converted-to.pdf used on input line 539.
 (pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
 
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 529--530
+Overfull \hbox (60.57022pt too wide) in paragraph at lines 539--540
 [][] 
  []
 
-[9] [10 <./deltaVstage2-eps-converted-to.pdf>] [11]
-Overfull \hbox (22.36569pt too wide) detected at line 613
+[10 <./deltaVstage2-eps-converted-to.pdf>] [11]
+Overfull \hbox (22.36569pt too wide) detected at line 623
 []\OML/zplm/m/it/10.95 ^^[[]h[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 M[]\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^U ^^@[]\OML/zplm/m/it/10.95 ^^[[]e[] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 k\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 M[] \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 \OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 e[] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 ^^L\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 e[] \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 ^^V\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 k\OT1/zplm/m/n/10.95 ([] \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 \OT1/zplm/m/n/10.95 ) = \OML/zplm/m/it/10.95 g\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 M[]\OT1/zplm/m/n/10.95 ) \OML/zplm/m/it/10.95 > \OT1/ppl/m/n/10.95 0
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--630
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 636--637
+Underfull \hbox (badness 10000) in paragraph at lines 638--640
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 696--697
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 706--707
 
  []
 
 
-Overfull \hbox (22.99007pt too wide) detected at line 707
+Overfull \hbox (22.99007pt too wide) detected at line 717
 []\OML/zplm/m/it/10.95 ^^[[]e[] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 k\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95  \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 x[]\OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 e[] \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 ^^L\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 e[] \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 ^^V\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 q[]\OT1/zplm/m/n/10.95 ))) \OML/zplm/m/it/10.95 > []^^[[]e[] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 k\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95  \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 x[]\OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 e[] \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 ^^L\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 e[] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 ^^U\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 q[]\OT1/zplm/m/n/10.95 )))
  []
 
-[13] [14]
-Overfull \hbox (12.06273pt too wide) detected at line 756
+[14]
+Overfull \hbox (12.06273pt too wide) detected at line 766
 \OML/zplm/m/it/10.95 V\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/ppl/m/n/10.95 , \OML/zplm/m/it/10.95 q\OT1/zplm/m/n/10.95 ) = [] \U/fplmbb/m/n/10.95 E[] []
  []
 
-[15] (/Users/zhaolong/storagepaper/.texpadtmp/main proof.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[15] (/Users/zhaolong/storagepaper/.texpadtmp/main proof.aux) ) 
 Here is how much of TeX's memory you used:
- 4321 strings out of 493315
- 64375 string characters out of 6137904
- 152509 words of memory out of 5000000
+ 4318 strings out of 493315
+ 64351 string characters out of 6137904
+ 153509 words of memory out of 5000000
  7503 multiletter control sequences out of 15000+600000
- 48721 words of font info for 207 fonts, out of 8000000 for 9000
+ 48562 words of font info for 205 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,21n,35p,917b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/Users/zhaolong/storagepaper/.texpadtmp/main proof.pdf" (15 pages, 186473 bytes).
+Output written on "/Users/zhaolong/storagepaper/.texpadtmp/main proof.pdf" (15 pages, 188846 bytes).
 PDF statistics:
  137 PDF objects out of 1000 (max. 8388607)
  97 compressed objects within 1 object stream

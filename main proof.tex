@@ -365,25 +365,34 @@ Because $\mathcal{L}V(x,q)$, $-V_q(x,q) + e^x - \mu(q)$ and $V_q(x,q) - e^x - \l
   \item  Keep doing the following steps until either convergence or $B^n \neq \emptyset$. $n$ starts with 0. 
   \begin{enumerate}
   \item Solve the fixed boundary problem with $(H^n,S^n,B^n)$ and the solution is denoted as $V^{n}(x,q)$.
-  \item Take positive maximal buying profits points as $B^{n+1}$. If none, $B^{n+1} = \emptyset$.
+  \item Take positive maximal buying profits points as $B^{n+1}$. That is to say, $B^{n+1} = \{(x,q)|x = x_M^{n+1}(q)\}$ where
+\begin{equation*}
+  x_M^{n+1}(q) = \left\{
+  \begin{array}{lc}
+  \arg \max_{(x,q)} BP(q)& \max_{(x,q)}BP(q)>0\\
+  \emptyset & \mbox{otherwise,}
+  \end{array}\right.
+\end{equation*}
+and $BP(q) =  V^{n}_q(x,q) - e^x - \lambda(q)$.
   \item If $B^{n+1} = \emptyset$, move down the selling boundary $\partial S^n$ to the maximal selling profitable points. Mathematically speaking $S^{n+1} = \{(x,q)|x\geq x^{n+1}(q)\}$ where 
   \begin{equation*}
-  x^{n+1}(q) = \arg\max_{x}\left(-V_q(x,q) + e^x - \mu(q)\right). 
+  x^{n+1}(q) = \arg\max_{x}\left(-V^{n}_q(x,q) + e^x - \mu(q)\right). 
   \end{equation*}
 
   
   \item $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
   \item $n = n + 1$.
   \end{enumerate}
-\item If previous loop ends because of $B^{n} \neq \emptyset$, keep doing the following  until convergence.
+\item If previous loop ends when $n = N$ because of $B^{N} \neq \emptyset$, keep doing the following  until convergence. $n$ starts as $N$.
   \begin{enumerate}
   \item Solve the fixed boundary problem with $(H^n,S^n,B^n)$ and the solution is denoted as $V^{n}(x,q)$.
   \item If $n$ is odd, $B^{n+1} = B^{n}$. Move down the selling boundary $\partial S^n$ to the maximal selling profitable points to have $S^{n+1}$ as previously.
   \item If $n$ is even, $S^{n+1} = S^{n}$. Move up and down buying boundary $\partial B^{n+1}$ to the maximal buying profitable points. Mathematically speaking, $B^{n+1} = \{(x,q)|x_l^{n+1}(q)\leq x\leq x_u^{n+1}(q)\}$ where 
   \begin{equation*}
   \begin{split}
-  x_l^{n+1}(q) &= \arg\max_{x<x_l^{n}(q)}\left(V_q(x,q) - e^x - \lambda(q)\right)\\
-  x_u^{n+1}(q) &= \arg\max_{x>x_u^{n}(q)}\left(V_q(x,q) - e^x - \lambda(q)\right)
+  x_l^{n+1}(q) &= \arg\max_{x<x_l^{n}(q)}\left(V^n_q(x,q) - e^x - \lambda(q)\right)\\
+  x_u^{n+1}(q) &= \arg\max_{x>x_u^{n}(q)}\left(V^n_q(x,q) - e^x - \lambda(q)\right)\\
+  x_l^{N}(q) &= x_u^{N}(q) = x_M^{N}(q)
   \end{split}
   \end{equation*}
   \item $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
@@ -722,7 +731,60 @@ Using similar method to have $\Delta V^{n+1}_q \leq 0$ and $\Delta V^{n+1}(x,Q_{
 
 \end{proof}
 
-\subsection{The boundaries can be kept moving}
+\subsection{The boundaries can keep moving}
+
+From the algorithm, the boundaries can move if and only if the following Theorem holds.
+
+\begin{Theorem}
+Three inequalities below are true for all $n$ and $q \in [Q_{\min},Q_{\max}]$.
+\begin{equation*}
+\begin{split}
+\left(-V_q^{n+1}(x,q) + e^{x}-\mu(q)\right)_x|_{x = x^{n+1}(q)} &\leq 0\\
+\left(V_q^{n+1}(x,q) - e^{x}-\lambda(q)\right)_x|_{x = x_u^{n+1}(q)} & \geq 0\\
+\left(V_q^{n+1}(x,q) - e^{x}-\lambda(q)\right)_x|_{x = x_l^{n+1}(q)} & \leq 0\\
+\end{split}
+\end{equation*}
+
+
+\end{Theorem}
+
+\begin{proof}
+    Still only the statement for selling boundary is proved. 
+    
+    \begin{enumerate}
+      \item In stage 1, the selling boundary is moved.
+      \item In stage 2, the buying boundary is moved.
+    \end{enumerate}
+     
+    In the first case, from previous proof, with $q$ fixed, $f(x) = \Delta V_q^{n+1}(x,q)$ achieves its maximum at point $x_S$ where $(x_S,q) \in S^{n+1}/S^{n}$. This is equivalent to 
+    $f'(x_S) > 0.$\footnote{If $f'(x_s) = 0$, by $\LL f(x_s) = 0$, $0<\beta f = \frac{1}{2}\sigma^2 f''(x)\leq 0$. Contradiction!} Thus, 
+    
+    \begin{equation}
+    \begin{split}
+      &(\Delta V_q^{n+1})_x(x_S,q) = f'(x_S) > 0\\
+      \Rightarrow & (V_q^{n+1})_x(x_S,q) -(V_q^{n})_x(x_S,q) >0\\
+      \Rightarrow & (V_q^{n+1})_x(x_S,q) - e^{x_S} > 0 \\
+      \Rightarrow & \left(V_q^{n+1}(x,q) - (e^{x}-\mu(q)\right)_x|_{x = x_S} > 0 \\ 
+      \Rightarrow & \left(-V_q^{n+1}(x,q) + (e^{x}-\mu(q)\right)_x|_{x = x_S} < 0.
+    \end{split}
+    \end{equation}
+    
+    Noticing that the only thing used here is that $x_S$ is the maximum. In the second case, it can be proved similarly that $x_S$ is also the maximum. See the figure (\ref{2ndstage}) for the idea. 
+    
+    \begin{figure}[hbt]\label{2ndstage}
+      \includegraphics{deltaVstage2.eps}
+      \caption{The equations that $\Delta V^{n+1}$ satisfies in the second stage.}
+    \end{figure}
+    
+    
+    Therefore we prove that we can continue moving the boundary.
+
+\end{proof}
+
+
+
+
+
 %
 %
 %
@@ -906,41 +968,12 @@ Using similar method to have $\Delta V^{n+1}_q \leq 0$ and $\Delta V^{n+1}(x,Q_{
 %
 %\end{proof}
 %
-%\section{The moving conditions are always satisfied. This is to say, we can keep moving the boundary.}
-%
-%\begin{proof}
-%Still only the statement for selling boundary is proved. 
-%
-%\begin{enumerate}
-%  \item In stage 1, the selling boundary is moved.
-%  \item In stage 2, the buying boundary is moved.
-%\end{enumerate}
-% 
-%In the first case, from previous proof, with $q$ fixed, $f(x) = \Delta V_q^{n+1}(x,q)$ achieves its maximum at point $x_S$ where $(x_S,q) \in S^{n+1}/S^{n}$. This is equivalent to 
-%$f'(x_S) > 0.$\footnote{If $f'(x_s) = 0$, by $\LL f(x_s) = 0$, $0<\beta f = \frac{1}{2}\sigma^2 f''(x)\leq 0$. Contradiction!} Thus, 
-%
-%\begin{equation}
-%\begin{split}
-%  &(\Delta V_q^{n+1})_x(x_S,q) = f'(x_S) > 0\\
-%  \Rightarrow & (V_q^{n+1})_x(x_S,q) -(V_q^{n})_x(x_S,q) >0\\
-%  \Rightarrow & (V_q^{n+1})_x(x_S,q) - e^{x_S} > 0 \\
-%  \Rightarrow & \left(V_q^{n+1}(x,q) - (e^{x}-\mu(q)\right)_x|_{x = x_S} > 0 \\ 
-%  \Rightarrow & \left(-V_q^{n+1}(x,q) + (e^{x}-\mu(q)\right)_x|_{x = x_S} < 0.
-%\end{split}
-%\end{equation}
-%
-%Noticing that the only thing used here is that $x_S$ is the maximum. In the second case, it can be proved similarly that $x_S$ is also the maximum. See the figure (\ref{2ndstage}) for the idea. 
-%
-%\begin{figure}[hbt]\label{2ndstage}
-%  \includegraphics{deltaVstage2.eps}
-%  \caption{The equations that $\Delta V^{n+1}$ satisfies in the second stage.}
-%\end{figure}
-%
-%
-%Therefore we prove that we can continue moving the boundary.
-%
-% 
-%\end{proof}
+    \section{The moving conditions are always satisfied. This is to say, we can keep moving the boundary.}
+    
+    \begin{proof}
+    
+     
+    \end{proof}
 %
 %
 %

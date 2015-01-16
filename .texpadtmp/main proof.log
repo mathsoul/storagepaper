@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  15 JAN 2015 16:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  15 JAN 2015 20:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -156,11 +156,7 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
 \c@Lemma=\count103
 \c@Theorem=\count104
- (/Users/zhaolong/storagepaper/.texpadtmp/main proof.aux
-
-LaTeX Warning: Label `DFf' multiply defined.
-
-)
+ (/Users/zhaolong/storagepaper/.texpadtmp/main proof.aux)
 \openout1 = `"main proof.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
@@ -334,244 +330,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
+
+ []
+
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 381--382
+Underfull \hbox (badness 10000) in paragraph at lines 394--395
 
- []
-
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 391.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 391.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 391.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 391.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 391.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 391.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 393.
-
-Underfull \hbox (badness 10000) in paragraph at lines 398--399
-
- []
-
-
-Overfull \hbox (3.3743pt too wide) in paragraph at lines 400--401
-[]\T1/ppl/m/n/10.95 (-20) If the lemma doesn't hold, com-bin-ing the ob-ser-va-tion above, $\OMS/zplm/m/n/10.95 9\OML/zplm/m/it/10.95 M[]\OT1/zplm/m/n/10.95 ([])\OT1/ppl/m/n/10.95 (-20) ,  [][] \OML/zplm/m/it/10.95 >
  []
 
 [4]
-Overfull \hbox (29.47061pt too wide) detected at line 433
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 404.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 404.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 404.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 404.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 404.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 404.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 406.
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
+
+ []
+
+
+Overfull \hbox (3.3743pt too wide) in paragraph at lines 413--414
+[]\T1/ppl/m/n/10.95 (-20) If the lemma doesn't hold, com-bin-ing the ob-ser-va-tion above, $\OMS/zplm/m/n/10.95 9\OML/zplm/m/it/10.95 M[]\OT1/zplm/m/n/10.95 ([])\OT1/ppl/m/n/10.95 (-20) ,  [][] \OML/zplm/m/it/10.95 >
+ []
+
+
+Overfull \hbox (29.47061pt too wide) detected at line 446
 []\OML/zplm/m/it/10.95 ^^[[]e[]h[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) + \OML/zplm/m/it/10.95 ke[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95  \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 h[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 ^^Le[]h\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) = \OMS/zplm/m/n/10.95 ^^@[]\OML/zplm/m/it/10.95 ^^[[] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 k\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 \OT1/zplm/m/n/10.95 ) + \OML/zplm/m/it/10.95 ^^L\OT1/zplm/m/n/10.95 (\OT1/ppl/m/n/10.95 1 \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 e[]^^V\OT1/zplm/m/n/10.95 ([]))\OT1/ppl/m/n/10.95 .
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
-
- []
-
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 459--460
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--474
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
 
  []
 
-[7]
-Overfull \hbox (6.39577pt too wide) in paragraph at lines 582--583
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 557--558
+
+ []
+
+
+Overfull \hbox (6.39577pt too wide) in paragraph at lines 592--593
 []\T1/ppl/m/n/10.95 (-20) Here we also use the mono-tonic-ity of $\OML/zplm/m/it/10.95 H[]\OT1/ppl/m/n/10.95 (-20) ,  []\OML/zplm/m/it/10.95 S[]$ \T1/ppl/m/n/10.95 (-20) and $\OML/zplm/m/it/10.95 B[]$\T1/ppl/m/n/10.95 (-20) , i.e. $\OML/zplm/m/it/10.95 H[] \OMS/zplm/m/n/10.95 ^^[ \OML/zplm/m/it/10.95 H[]\OT1/ppl/m/n/10.95 (-20) ,  []\OML/zplm/m/it/10.95 S[] \OMS/zplm/m/n/10.95 ^^Z
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 582--583
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
 
  []
 
-[8]
-Overfull \hbox (51.46509pt too wide) detected at line 656
+[8] [9]
+Overfull \hbox (51.46509pt too wide) detected at line 671
 []
  []
 
-[9]
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 722.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 722.
-
-Underfull \hbox (badness 10000) in paragraph at lines 722--723
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 724--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 726--727
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 752--753
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 755--756
-
- []
-
-Package epstopdf Info: Source file: <SnSn+1Bn.eps>
-(epstopdf)                    date: 2014-10-09 13:49:27
-(epstopdf)                    size: 23646 bytes
-(epstopdf)             Output file: <SnSn+1Bn-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-10-09 13:50:14
-(epstopdf)                    size: 15882 bytes
-(epstopdf)             Command: <repstopdf --outfile=SnSn+1Bn-eps-converted-to.pdf SnSn+1Bn.eps>
-(epstopdf)             \includegraphics on input line 760.
-Package epstopdf Info: Output file is already uptodate.
-<SnSn+1Bn-eps-converted-to.pdf, id=48, 420.57124pt x 316.18124pt>
-File: SnSn+1Bn-eps-converted-to.pdf Graphic file (type pdf)
- <use SnSn+1Bn-eps-converted-to.pdf>
-Package pdftex.def Info: SnSn+1Bn-eps-converted-to.pdf used on input line 760.
-(pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
-
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 760--761
-[][] 
- []
-
-Package epstopdf Info: Source file: <deltaV.eps>
-(epstopdf)                    date: 2014-10-09 13:55:40
-(epstopdf)                    size: 24658 bytes
-(epstopdf)             Output file: <deltaV-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-10-09 13:56:34
-(epstopdf)                    size: 16915 bytes
-(epstopdf)             Command: <repstopdf --outfile=deltaV-eps-converted-to.pdf deltaV.eps>
-(epstopdf)             \includegraphics on input line 776.
-Package epstopdf Info: Output file is already uptodate.
-<deltaV-eps-converted-to.pdf, id=49, 420.57124pt x 316.18124pt>
-File: deltaV-eps-converted-to.pdf Graphic file (type pdf)
- <use deltaV-eps-converted-to.pdf>
-Package pdftex.def Info: deltaV-eps-converted-to.pdf used on input line 776.
-(pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
-
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 776--777
-[][] 
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 801--802
-
- []
-
-[13 <./SnSn+1Bn-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 819--820
-
- []
-
-[14 <./deltaV-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Isolated.eps>
-(epstopdf)                    date: 2014-10-09 21:51:37
-(epstopdf)                    size: 17017 bytes
-(epstopdf)             Output file: <Isolated-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-10-09 21:57:15
-(epstopdf)                    size: 11604 bytes
-(epstopdf)             Command: <repstopdf --outfile=Isolated-eps-converted-to.pdf Isolated.eps>
-(epstopdf)             \includegraphics on input line 840.
-Package epstopdf Info: Output file is already uptodate.
- <Isolated-eps-converted-to.pdf, id=76, 420.57124pt x 316.18124pt>
-File: Isolated-eps-converted-to.pdf Graphic file (type pdf)
- <use Isolated-eps-converted-to.pdf>
-Package pdftex.def Info: Isolated-eps-converted-to.pdf used on input line 840.
-(pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
-
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 840--841
-[][] 
- []
-
-Package epstopdf Info: Source file: <NotIsolated.eps>
-(epstopdf)                    date: 2014-10-09 21:51:59
-(epstopdf)                    size: 14554 bytes
-(epstopdf)             Output file: <NotIsolated-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-10-09 21:57:17
-(epstopdf)                    size: 9490 bytes
-(epstopdf)             Command: <repstopdf --outfile=NotIsolated-eps-converted-to.pdf NotIsolated.eps>
-(epstopdf)             \includegraphics on input line 845.
-Package epstopdf Info: Output file is already uptodate.
-<NotIsolated-eps-converted-to.pdf, id=77, 420.57124pt x 316.18124pt>
-File: NotIsolated-eps-converted-to.pdf Graphic file (type pdf)
- <use NotIsolated-eps-converted-to.pdf>
-Package pdftex.def Info: NotIsolated-eps-converted-to.pdf used on input line 845.
-(pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
-
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 845--846
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 856--857
-
- []
-
-[15 <./Isolated-eps-converted-to.pdf>] [16 <./NotIsolated-eps-converted-to.pdf>]
-Overfull \hbox (11.67497pt too wide) in paragraph at lines 890--891
-[]\T1/ppl/m/n/10.95 (-20) In sum, $\OMS/zplm/m/n/10.95 L\OT1/zplm/m/n/10.95 ^^A\OML/zplm/m/it/10.95 V[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/ppl/m/n/10.95 (-20) , 0\OT1/zplm/m/n/10.95 ) = \OT1/ppl/m/n/10.95 (-20) 0 \OMS/zplm/m/n/10.95 8\OML/zplm/m/it/10.95 x \OMS/zplm/m/n/10.95 2 \U/fplmbb/m/n/10.95 R$\T1/ppl/m/n/10.95 (-20) . By pre-vi-ous ar-gu-ment, $\OT1/zplm/m/n/10.95 ^^A\OML/zplm/m/it/10.95 V[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/ppl/m/n/10.95 (-20) , \OML/zplm/m/it/10.95 q\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^U
- []
-
-Package epstopdf Info: Source file: <deltaVstage2.eps>
-(epstopdf)                    date: 2014-10-09 21:54:50
-(epstopdf)                    size: 17303 bytes
-(epstopdf)             Output file: <deltaVstage2-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-10-09 21:57:18
-(epstopdf)                    size: 12500 bytes
-(epstopdf)             Command: <repstopdf --outfile=deltaVstage2-eps-converted-to.pdf deltaVstage2.eps>
-(epstopdf)             \includegraphics on input line 920.
-Package epstopdf Info: Output file is already uptodate.
-<deltaVstage2-eps-converted-to.pdf, id=96, 420.57124pt x 316.18124pt>
-File: deltaVstage2-eps-converted-to.pdf Graphic file (type pdf)
- <use deltaVstage2-eps-converted-to.pdf>
-Package pdftex.def Info: deltaVstage2-eps-converted-to.pdf used on input line 920.
-(pdftex.def)             Requested size: 420.57022pt x 316.18047pt.
-
-Overfull \hbox (60.57022pt too wide) in paragraph at lines 920--921
-[][] 
- []
-
-[17] [18 <./deltaVstage2-eps-converted-to.pdf>]
-Overfull \hbox (12.06273pt too wide) detected at line 986
-\OML/zplm/m/it/10.95 V\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/ppl/m/n/10.95 , \OML/zplm/m/it/10.95 q\OT1/zplm/m/n/10.95 ) = [] \U/fplmbb/m/n/10.95 E[] []
- []
-
-[19] (/Users/zhaolong/storagepaper/.texpadtmp/main proof.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+[10] [11] (/Users/zhaolong/storagepaper/.texpadtmp/main proof.aux) ) 
 Here is how much of TeX's memory you used:
- 4689 strings out of 493315
- 68656 string characters out of 6137904
- 155228 words of memory out of 5000000
- 7824 multiletter control sequences out of 15000+600000
- 59244 words of font info for 251 fonts, out of 8000000 for 9000
+ 4583 strings out of 493315
+ 67032 string characters out of 6137904
+ 154131 words of memory out of 5000000
+ 7773 multiletter control sequences out of 15000+600000
+ 47849 words of font info for 204 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,21n,35p,917b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,18n,35p,876b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/Users/zhaolong/storagepaper/.texpadtmp/main proof.pdf" (19 pages, 205437 bytes).
+Output written on "/Users/zhaolong/storagepaper/.texpadtmp/main proof.pdf" (11 pages, 133248 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
+ 85 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 29722 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 25089 words of extra memory for PDF output out of 29859 (max. 10000000)
 

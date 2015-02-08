@@ -91,235 +91,70 @@
 
 %%%%%%% This part is wrong %%%%%%%%%%%%
 
-
-%\section*{Introduction}
-%The portrait of injection region is first discussed. It can be proved that it is impossible to change from holding to injection as the price increases. Then it is shown that it is impossible to always do nothing no matter how high the price is. At last, we prove that if we withdraw at one price which is above certain level, we will withdraw at any price that is larger than the price just mentioned.\\
-%
-%One important thing to remember is that if there is no difference between injection and holding, we will always hold. This is to say, at injecting point, injection is strictly better than holding.
-%\section*{Injection region}
-%First recall the HJB equation as following 
-%\begin{equation*}
-%\max(V_q-(e^x+\lambda), \LL V, -V_q +(e^x-\mu)) = 0
-%\end{equation*}
-%where 
-%\begin{equation}\label{L}
-%\LL V = \frac{1}{2}\sigma^2 V_{xx} + k(\alpha - x)V_x - \beta V.
-%\end{equation}
-%Next, we would like to use contradiction method to show that it is impossible to change from holding to injection as price increases. If not, let $(x_0,q_0)$ be the point of changing. 
-%Then the smooth fit conditions show
-%\begin{equation}\label{smooth}
-%\begin{split}
-%V(x_0-,q_0) & = V(x_0+,q_0)\\
-%V_q(x_0-,q_0) &= V_q(x_0+,q_0) \\
-%V_x(x_0-,q_0) &= V_x(x_0+,q_0)\\
-%\exists V_{xx}(x_0+,q_0) &\mbox{ and } V_{xx}(x_0-,q_0).
-%\end{split}
-%\end{equation}\footnote{The right and left second order derivatives may not equal to each other but they both exsit. That is to say, the value function may not be second order continuous. However, the Ito's formula still holds because the Ito-Tanaka theorem shows that Ito's formula holds with countable discontinuous points.}
-%Changing from holding to injection can be described as 
-%\begin{equation}\label{changing}
-%\begin{split}
-%V_q(x_0+,q_0) &= e^{x_0} + \lambda\\
-%\LL V_(x_0+,q_0) &<  0\\
-%V_q(x_0+,q_0) &> e^{x_0} - \mu\\
-%V_q(x_0-,q_0) & \leq e^{x_0}+\lambda\\
-%\LL V_(x_0-,q_0) &= 0 \\
-%V_q(x_0-,q_0) &> e^{x_0} - \mu.\\
-%\end{split}
-%\end{equation}\footnote{The second inequality must be strict because $(x_0,q_0)$ is an injecting point at which injection is strictly better than holding.}
-%%It is necessary  to prove the second inequality can't be strict. If not 
-%%\begin{equation}
-%%\LL V_(x_0+,q_0) = 0 = \LL V_(x_0-,q_0)
-%%\end{equation}
-%%Noticing that $V(x_0-,q_0)  = V(x_0+,q_0)$ and $V_x(x_0-,q_0) &= V_x(x_0+,q_0)$,  $ V_{xx}(x_0+,q_0) =  V_{xx}(x_0-,q_0)$.
-%Next we would like to prove that the injection point can't be isolated. If not we must have 
-%\begin{equation*}
-%\begin{split}
-%\LL V(x,q_0) &= 0 \quad \forall x \in (x_0,+\infty)\cap\{\mbox{holding region}\}\\
-%\LL V(x,q_0) &= 0 \quad \forall x \in (-\infty,x_0)\cap\{\mbox{holding region}\}.
-%\end{split}
-%\end{equation*}
-%Noticing that the right and left second order derivatives of value function with respect to $x$ exists,
-%\begin{equation*}
-%\begin{split}
-%\LL V(x_0+,q_0) &= \lim_{x \rightarrow x_0+} \LL V(x,q_0) = 0\\
-%\LL V(x_0-,q_0) &= \lim_{x \rightarrow x_0-} \LL V(x,q_0) = 0.
-%\end{split}
-%\end{equation*}
-%Therefore $\LL V(x_0,q_0) = 0$ which contradicts the fact that $(x_0,q_0)$ is an injection point. Together with smoothness, there must be a $x_1 > x_0$ such that we inject at any point belongs to the set $I = \{(x,q_0)| x \in [x_0,x_1)\}$.Therefore for any point in $I$
-%\begin{equation*}
-%\begin{split}
-%V_q(x,q_0) &= e^{x} + \lambda\\
-%\LL V_(x+,q_0) &<  0\\
-%V_q(x,q_0) &> e^{x} - \mu.\\
-%\end{split}
-%\end{equation*}
-%By the convexity for $V(x,q)$ with respect to $q$
-%\begin{equation*}
-%V_q(x,q) = e^{x} + \lambda \quad \forall (x,q) \in [x_0,x_1]\times [0,q_0].
-%\end{equation*}
-%Therefore, 
-%\begin{equation}\label{Vvalue}
-%V(x,q_0) = q_0(e^{x}+\lambda) + V(x,0).
-%\end{equation}\footnote{$V(x,0)$ may not be $0$, since we can make money by buying low and selling high.}
-%%Right now, we are able to show why the second inequality is strict in (\ref{changing}). If not, plug (\ref{Vvalue}) into $\LL V(x_0+,q_0) = 0$,
-%%\begin{equation}
-%%%\begin{split}
-%%\frac{1}{2}\sigma^2(q_0e^{x_0} + V_{xx}(x_0+,0)) + k(\alpha -x_0)(q_0e^{x_0}+V_x(x_0,0)) - \beta(q_0(e^{x_0}+\lambda) + V(x_0,0) = 0
-%%%\end{split}
-%%\end{equation}
-%%Taking $q_0$
-%Similarly, holding point can't be isolated as well. There exists a $x_2<x_0$ such that we hold at any point belongs to the set $H = \{(x,q_0)| x \in (x_2,x_0)\}\footnote{The point$(x_0,q_0)$ is excluded from this set because it is actually an injection point.}$. Therefore for any point in $H$
-%\begin{equation*} 
-%\begin{split}
-%V_q(x,q_0) &< e^{x} + \lambda\\
-%\LL V_(x-,q_0) &=  0\\
-%V_q(x,q_0) & > e^{x} - \mu.\\
-%\end{split}
-%\end{equation*}\footnote{The first inequality is not strict because it holds at point $(x_0,q_0)$ while the third inequality is always strict since all the points are in the interior of the completion set of withdrawing region.}
-%Since HJB equation holds for every point, therefore 
-%\begin{equation*}
-%e^x - \mu \leq V_q(x,q) \leq e^x + \lambda.
-%\end{equation*}
-%Thus
-%%Combined with the facts that $V_q(x,q_0) < e^{x} + \lambda$ and $V(x,q)$ is convex with respect to $q$,
-%\begin{equation*}
-%q_0(e^x-\mu) + V(x,0) \leq V(x,q_0) \leq q_0(e^x+\lambda) + V(x,0)
-%\end{equation*}
-%for any point in $H$.\\
-%To simplify the equation, let 
-%\begin{equation*}
-%f(x) = V(x,q_0) - q_0(e^x+ \lambda) - V(x,0).
-%\end{equation*}
-%Then 
-%\begin{equation*}
-%	f(x) \left\{
-%	\begin{array}{rrr}
-%\leq &0 &x_2<x<x_0\\
-%= &0 & x_0\leq x< x_1.
-%\end{array}
-%\right.
-%\end{equation*}
-%Therefore $x_0$ is the local maximum\footnote{Actually, it is the global maximum point} which means $f''(x_0-) \leq 0.$\footnote{It is obvious that $f''(x_0+) = 0$.} What's more, from the smooth fit condition (\ref{smooth})
-%\begin{equation}\label{fvalue}
-%\begin{split}
-%f(x_0-) &= f(x_0+) = 0\\
-%f'(x_0-) &= f'(x_0+) = 0.
-%\end{split}
-%\end{equation} 
-%On the other hand, 
-%\begin{equation*}
-%V(x,q_0) =f(x) + q_0(e^x+\lambda) + V(x,0)
-%\end{equation*}
-%Plug this in $\LL V(x_0+,q_0)< 0$ and $\LL V(x_0-,q_0) =0$
-%\begin{equation*}
-%\begin{split}
-%\frac{1}{2}\sigma^2 f''(x_0+) + k(\alpha - x_0)f'(x_0) - \beta f(x_0) < -\frac{1}{2}\sigma^2 q_0 e^x + k(x_0 - \alpha)q_0e^x + \beta q_0(e^x + \lambda) \\-\frac{1}{2}\sigma^2 V_{xx}(x_0+,0) - k (\alpha -x_0) V_x(x_0,0) + \beta V(x_0,0)
-%\end{split}
-%\end{equation*}
-%and
-%\begin{equation*}
-%\begin{split}
-%\frac{1}{2}\sigma^2 f''(x_0-) + k(\alpha - x_0)f'(x_0) - \beta f(x_0) = -\frac{1}{2}\sigma^2 q_0 e^x + k(x_0 - \alpha)q_0e^x + \beta q_0(e^x + \lambda) \\-\frac{1}{2}\sigma^2 V_{xx}(x_0-,0) - k (\alpha -x_0) V_x(x_0,0) +\beta V(x_0,0).
-%\end{split}
-%\end{equation*}
-%Substitute (\ref{fvalue}) and $f''(x_0+) = 0$ into the previous two formulas we have
-%\begin{equation*}
-%\begin{split}
-%0<-\frac{1}{2}\sigma^2 q_0 e^x + k(x_0 - \alpha)q_0e^x + \beta q_0(e^x + \lambda) \\-\frac{1}{2}\sigma^2 V_{xx}(x_0+,0) - k (\alpha -x_0) V_x(x_0,0) + \beta V(x_0,0)
-%\end{split}
-%\end{equation*}
-%and
-%\begin{equation*}
-%\begin{split}
-%\frac{1}{2}\sigma^2 f''(x_0-) = -\frac{1}{2}\sigma^2 q_0 e^x + k(x_0 - \alpha)q_0e^x + \beta q_0(e^x + \lambda) \\   -\frac{1}{2}\sigma^2 V_{xx}(x_0-,0) - k (\alpha -x_0) V_x(x_0,0) + \beta V(x_0,0).
-%\end{split}
-%\end{equation*}
-%However, $f''(x_0-)\leq 0$ thus if $V_{xx}(x_0+,0) = V_{xx}(x_0-,0)$ then there is a contradiction.\\
-%If $V_{xx}(x_0+,0) \neq V_{xx}(x_0-,0)$ which means that $(x_0,0)$ is on the boundary of injection and holding, by the convexity of $V(x,q)$ with respect to $q$, all the points $\{(x_0,q), q\leq q_0\}$ are on the boundary. Define
-%\begin{equation*}
-%q_1 = \sup\{q\leq Q |(x_0,q) \mbox{ is on the boundary}\}.
-%\end{equation*}
-%By definition, $q_0 \leq q_1 \leq Q$. Moreover, $\LL V(x_0,q_1) = 0$. If not, by the continuity of $V_{xx}, V_x$ and $V$ with respect to $q$, we can have a $q_2 > q_1$ such that $(x_0,q_2)$ is on the boundary which contradicts the definition of $q_1$.  Noticing that $\forall q<q_1$
-%\begin{equation*}
-%\LL V(x_0+,q) = \frac{1}{2}\sigma^2(qe^{x_0} + V_{xx}(x_0+,0)) + k(\alpha -x_0)(qe^{x_0}+V_x(x_0,0)) - \beta(q(e^{x_0}+\lambda) + V(x_0,0)).
-%\end{equation*}
-%Take $q \rightarrow q_1$,
-%\begin{equation*}
-%0 = \LL V(x_0+,q_1) = \frac{1}{2}\sigma^2(q_1e^{x_0} + V_{xx}(x_0+,0)) + k(\alpha -x_0)(q_1e^{x_0}+V_x(x_0,0)) - \beta(q_1(e^{x_0}+\lambda) + V(x_0,0)).
-%\end{equation*}
-%On the other hand $\forall q<q_1$
-%\begin{equation*}
-%\LL V(x_0-,q) = \frac{1}{2}\sigma^2(qe^{x_0} + V_{xx}(x_0-,0)) + k(\alpha -x_0)(qe^{x_0}+V_x(x_0,0)) - \beta(q(e^{x_0}+\lambda) + V(x_0,0)).
-%\end{equation*}
-%Take $q \rightarrow q_1$,
-%\begin{equation*}
-%0 = \LL V(x_0-,q_1) = \frac{1}{2}\sigma^2(q_1e^{x_0} + V_{xx}(x_0-,0)) + k(\alpha -x_0)(q_1e^{x_0}+V_x(x_0,0)) - \beta(q_1(e^{x_0}+\lambda) + V(x_0,0)).
-%\end{equation*}
-%Thus $V_{xx}(x_0 + ,0) = V_{xx}(x_0-,0)$ which is a contradiction. All in all, we have proved that it is impossible to approach injecting region from below.
-
 \section{Model}
 
 Let $S_t$ be the price and its evolution follows 
-
 \begin{equation}
   dS_t = \kappa(\gamma-\log(S_t))S_t dt + \sigma S_t dZ_t.
 \end{equation}
 
 Take $X_t = \log(S_t)$, by Ito's formula,
-
 \begin{equation}
   dX_t = \kappa(\alpha - X_t) dt + \sigma dZ_t,
 \end{equation}
 
 where $\alpha = \gamma - \frac{\sigma^2}{2\kappa}$.\\ 
 
-Let $Q_t \in [Q_{\min},Q_{\max}]$ denote the total amount of commodity in the storage facility at time $t$ where $Q_{\min},Q_{\max}$ are the minimum and maximum capacity. Here for simplicity, take them as $0$ and $100$ separately. \\
+Denote the total amount of the commodity in the storage facility at time $t$ as $Q_t$. Also, denote cumulative amounts of commodity purchased and sold up to time $t$ as $L_t$ and $U_t$, respectively. Here and after, buy and inject have the same meaning, so do sell and withdraw.\\
 
-The decisions that a facility manager can make is when and how much shall be injected and withdraw from the facility. Denote cumulative amounts of commodity purchased and sold up to time $t$ as $L_t$ and $U_t$, respectively. Here and after, buy and inject have the same meaning, so do sell and withdraw. Then 
-
+The decisions are when and how much shall be injected and withdraw from the facility. In other words, every decision can be represented as a pair $(L_t,U_t)$. Because the change in storage is equal to the amount injected minus the amount withdrawed, we have
 \begin{equation}
   dQ_t = dL_t - dU_t.
 \end{equation}
 
-An admissible control policy is a pair $(L_t,U_t)$ such that $Q_t \in [Q_{\min},Q_{\max}]$ for all $t$. $\mathcal{U}$ is used to denote all admissible policies.\\
+An admissible control policy $(L_t,U_t)$ must satisfy that the storage level at any time is within capabilities. That is to say, $Q_t \in [Q_{\min},Q_{\max}]$ for all $t$ where $Q_{\min}$ and $Q_{\max}$ are the upper and lower capability respectively. We use $\mathcal{U}$ to denote all admissible policies.\\
 
-Both injection and withdraw generate costs. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ unit already and $\mu(q)$ of withdrawing. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{L_{t-}}^{L_t} \lambda(q) dq$ and $\int_{U_{t-}}^{U_t} \mu(q) dq$ respectfully. We assume that $\lambda(q)$ and $\mu(q)$ are continuous and bounded. It is often easier to inject(withdraw) when empty(full) than full(empty). Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing.\\
+Both injection and withdrawal generate costs. As a result, injection and withdrawal won't take place at the same time. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ unit. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{Q_{t-}}^{Q_{t}} \lambda(q) dq$ and $\int_{Q_{t}}^{Q_{t-}} \mu(q) dq$ respectfully.  It is often easier to inject(withdraw) when empty(full) than full(empty). Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing. To be economic meaningful, we also assume that $\lambda(q)$ and $\mu(q)$ are bounded.\\
 
 The objective is to maximize discounted infinite-horizon discounted cash flows. Taking a discount factor $\beta \in (0,1)$, 
-
 \begin{equation}\label{V(x,q)}
-  V(x,q) = \max_{(L,U) \in \mathcal{U}} \mathbb{E}_{x,q} \left(\int_{0}^{\infty} e^{-\beta t}(e^{X_t} - \mu(Q^1_t))dU_t - \int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \lambda(Q^2_t))dL_t\right)
+  V(x,q) = \max_{(L,U) \in \mathcal{U}} \mathbb{E}_{x,q} \left(\int_{0}^{\infty} e^{-\beta t}(e^{X_t} - M_t)dU_t - \int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \Lambda_t)dL_t\right) 
 \end{equation}
 
-where $X_0 =x$ and $Q_0 = q$. $Q^1_t$ and $Q^2_t$ are introduced as following to make the objective simpler,
+where $X_0 =x$ and $Q_0 = q$. We use $\Lambda_t$ and $M_t$ to represent the injection and withdrawal cost at time $t$. By the definition of $\lambda$ and $\mu$, we have the following relations.
 \begin{equation}
-  Q^1_t = \mu^{-1}\left(\frac{1}{U_t - U_{t-}}\int_{U_{t-}}^{U_t} \mu(q) dq\right)
+  \Lambda_t = \left\{
+  \begin{array}{lc}
+  \lambda(Q_t) & \mbox{if} ~ L_t = L_{t-}\\
+  \frac{1}{Q_t - Q_{t-}}\int_{Q_{t-}}^{Q_{t}} \lambda(q)& \mbox{otherwise.}
+  \end{array}
+  \right.
 \end{equation}
-
 \begin{equation}
-  Q^2_t = \lambda^{-1}\left(\frac{1}{L_t - L_{t-}}\int_{L_{t-}}^{L_t} \lambda(q) dq\right).
+  M_t = \left\{
+  \begin{array}{lc}
+  \mu(Q_t) & \mbox{if} ~ U_t = U_{t-}\\
+  \frac{1}{Q_{t-} - Q_{t}}\int_{Q_{t}}^{Q_{t-}} \mu(q) dq & \mbox{otherwise.}
+  \end{array}
+  \right.
 \end{equation}
 
-
- Since $V(x,q)$ is the maximum value that a facility manager can obtain from a storage facility, this is the value of the facility when the current spot log price is $x$ and the amount is $q$.
+In other words, the maximum value that a facility manager can obtain from a storage facility when the current spot log price is $x$ and the amount is $q$ is $V(x,q)$.
 
 \section{No Transaction Costs}
-No transaction cost means that $\lambda$ (buying cost) $\equiv 0$ and $\mu$ (selling cost) $\equiv 0$. Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Whenever the drift of $X_t$ exceeds interest rate, we should buy. Vice versa. Let this critical point be $X^*$, then
-
+No transaction cost means that $\lambda$ (buying cost) $\equiv 0$ and $\mu$ (selling cost) $\equiv 0$. Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Whenever the drift of $X_t$ exceeds interest rate, we should buy. Vice versa. Let this critical point be $X^*$, and then
 \begin{equation*}
   \kappa (\alpha - X^*) = r \Rightarrow X^* = \alpha - \frac{r}{\kappa}
 \end{equation*}
 
 The optimal strategy is as following
-
 \begin{itemize}
   \item If $X_t > X^*$, sell to empty.
   \item If $X_t \leq X^*$, buy to full.
 \end{itemize}
 
 \section{Constant Transaction Costs}
-Let the constant transaction cost be $\lambda$ (buying cost) and $\mu$ (selling cost). Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Introduce the following two functions of log price $x$,
-
+Let the constant buying (selling) costs be $\lambda$ ($\mu$). Since the cost (profit) of buying (selling) one unit at the same price level is the same, the optimal strategy should be bang-bang. Introduce the following two functions of log price $x$,
 \begin{equation*}
 \begin{split}
   V(x) &= \sup_{\tau \in \mathcal{T}} \mathbb{E}_x\{e^{-r\tau}(e^{X_\tau} - \mu)\}\\
@@ -327,146 +162,142 @@ Let the constant transaction cost be $\lambda$ (buying cost) and $\mu$ (selling 
 \end{split}
 \end{equation*}
 
-$V(x)$ is the maximum value that can be gained from 1 unit commodity when log price is $x$. $J(x)$ is the value of an empty storage when log price is $x$. Tim Leung et al.(2014) use concavity to prove that the optimal policy for $V(x)$ is an upper threshold policy. This means that if log price exceeds the threshold sell. $d^*$ is denoted as the threshold. Using similar idea, they also prove the optimal policy for $J(x)$ is an upper-lower threshold policy. This means that one will buy if and only if log price is inside two thresholds. $a^*$ and $b^*$ are denoted as the lower and upper threshold. Based on the existence and conditions of $a^*$ and $b^*$, there are two cases.
-
-
+$V(x)$ is the maximum value that can be gained from 1 unit commodity when log price is $x$. $J(x)$ is the maximal profit of buying and then selling 1 unit commodity when log price is $x$. Tim Leung et al.(2014) use concavity to prove that the optimal policy for $V(x)$ is an upper threshold policy. In other words, if log price exceeds the threshold $d^*$, then sell. Using similar idea, they also prove the optimal policy for $J(x)$ is an upper-lower threshold policy. That is to say, one will buy if and only if log price is within two thresholds, namely [$a^*$,$b^*$]. Based on the existence and conditions of $a^*$ and $b^*$, there are two cases.
 \begin{enumerate}
     \item $J(x) = 0$. In this case, it is not optimal enter the market at all.
     \item $-\infty < a^* < b^* < d^*< \infty$. This means that commodity is bought when log price is within $[a^*,b^*]$ and will be sold when log price achieves $d^*$.
 \end{enumerate}
 
+%TODO: add the summation of J(x) as the value of a storage facility.
 
 
 
-\section{Non Constant Transaction Costs}
-\subsection{The HJB equation}
-The stochastic control problem with non constant transaction costs can be transformed into a Hamilton Jacobi Bellman (HJB) equation via dynamic programming principle and Ito's formula. The HJB equation characterize the value function $V(x,q)$ (\ref{V(x,q)}).\\
+
+\section{Non-Constant Transaction Costs}
+The stochastic control problem with non-constant transaction costs can be transformed into a Hamilton Jacobi Bellman (HJB) equation via dynamic programming principle and Ito's formula. The HJB equation characterize the value function $V(x,q)$ (\ref{V(x,q)}).\\
 
 We will use $V_{x}$ and $V_{q}$ separately to denote the partial differential of $V$ with respect to $x$ and $q$. $V_{xx}$ represents $\frac{\partial^2 V}{(\partial x)^2}$. The value function $V(x,q)$ is expected to satisfy the HJB equation
-
 \begin{equation}\label{HJB}
-  \max \left[ \mathcal{L} V(x,q),-V_q(x,q) + e^x - \mu(q),V_q(x,q) - e^x - \lambda(q)\right] = 0.
+  \max \left[ \mathcal{L} V(x,q),\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0.
 \end{equation}
 where 
-\begin{equation}\label{Loper}
-  \mathcal{L} V(x,q) = \frac{1}{2}\sigma^2V_{xx}(x,q) + k(\alpha-x)V_{x}(x,q) - \beta V(x,q).
+\begin{equation}\label{Oper}
+\begin{split}
+  \mathcal{L}V(x,q) &= \frac{1}{2}\sigma^2V_{xx}(x,q) + k(\alpha-x)V_{x}(x,q) - \beta V(x,q),\\
+  \mathcal{S}V(x,q) &= -V_q(x,q) + e^x - \mu(q),\\
+  \mathcal{B}V(x,q) &= V_q(x,q) - e^x - \lambda(q).
+\end{split}
 \end{equation}
 
-Because $\mathcal{L}V(x,q)$, $-V_q(x,q) + e^x - \mu(q)$ and $V_q(x,q) - e^x - \lambda(q)$ are the profits at $(x,q)$ generated by utilizing holding, selling and buying policy respectively,  they are called holding profit, selling profit and buying profit. The region that holding profit is the highest is called the optimal holding region and denoted as $H^*$. Similarly, optimal selling (buying) region is defined and denoted as $S^*$ ($B^*$). \\
 
-%TODO: Introduce S^{n+1} and V^{n+1} 
+Because the three terms in equation (\ref{HJB}) are the profits utilizing holding, selling, and buying policy respectively,  they are called holding, selling, and buying profit.\\
 
+The region where the holding profit is the highest is called the optimal holding region and denoted as $H^*$. Similarly, the optimal selling (buying) region is defined and denoted as $S^*$ ($B^*$). Mathematically speaking, 
+\begin{equation*}
+\begin{split}
+  \mathcal{L} V(x,q) &= \max \left[ \mathcal{L} V(x,q),\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0 \quad (x,q) \in H^*\\
+  \mathcal{S}V(x,q) &=\max \left[ \mathcal{L} V(x,q),,\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0 \quad (x,q) \in S^*\\
+  \mathcal{B}V(x,q) &=\max \left[ \mathcal{L} V(x,q),,\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0 \quad (x,q) \in B^* 
+\end{split}
+\end{equation*}
 
-
+We want to have a sequence of regions, $(H^{n},S^{n},B^{n})$, to approach the optimal regiones $(H^*,S^*,B^*)$. The fixed boundary problem $(H^{n},S^{n},B^{n})$ is defined as a system of equations which states that holding (selling, buying) profit is 0 in $H^{n}$ ($S^{n}, B^{n}$). Mathematically speaking, 
+\begin{equation}\label{Eq:Vn}
+\begin{array}{ll}
+\mathcal{L} V^{n}(x,q) = 0& (x,q) \in H^{n}\\
+\mathcal{S}V^{n}(x,q) = 0 &(x,q) \in S^{n}\\
+\mathcal{B}V^{n}(x,q) = 0 &(x,q) \in B^{n}.\\
+\end{array}
+\end{equation}
+Here the solution to the fixed boundary problem is denoted as $V^{n}(x,q)$.
 
 \subsection{Algorithm}
 \begin{enumerate}
-  \item Find a large enough $M_0$ such that $S^* \supset S^0$ where the selling region $S^0 =  \{(x,q)|x\geq M_0,~Q_{\min} <q \leq Q_{\max}\}$. Set holding region $H^0 = (S^0)^c$ and buying region $B^0 = \emptyset$.   
-  \item  Keep doing the following steps until either convergence or $B^n \neq \emptyset$. $n$ starts with 0. 
+  \item Find a large enough number $M_0$ such that the optimal selling region contains the inititial selling region $S^0 =  \{(x,q)|x\geq M_0,~Q_{\min} <q \leq Q_{\max}\}$. Set holding region $H^0 = (S^0)^c$ and buying region $B^0 = \emptyset$.   
+  \item  Keep doing the following steps until either convergence or buying region becomes non-empty, namely $B^n \neq \emptyset$. Here $n$ starts with 0. 
   \begin{enumerate}
-  \item Solve the fixed boundary problem with $(H^n,S^n,B^n)$ and the solution is denoted as $V^{n}(x,q)$.
-  \item Take positive maximal buying profits points as $B^{n+1}$. That is to say, $B^{n+1} = \{(x,q)|x = x_M^{n+1}(q)\}$ where
-\begin{equation*}
-  x_M^{n+1}(q) = \left\{
-  \begin{array}{lc}
-  \arg \max_{(x,q)} BP(q)& \max_{(x,q)}BP(q)>0\\
-  \emptyset & \mbox{otherwise,}
-  \end{array}\right.
-\end{equation*}
-and $BP(q) =  V^{n}_q(x,q) - e^x - \lambda(q)$.
-  \item If $B^{n+1} = \emptyset$, move down the selling boundary $\partial S^n$ to the maximal selling profitable points. Mathematically speaking $S^{n+1} = \{(x,q)|x\geq x^{n+1}(q)\}$ where 
-  \begin{equation*}
-  x^{n+1}(q) = \arg\max_{x}\left(-V^{n}_q(x,q) + e^x - \mu(q)\right). 
-  \end{equation*}
-
+  \item Calculate the value function $V^{n}(x,q)$.
+  \item If the maximal buying profit is positive, $max_{x}\mathcal{B}V^{n}(x,q)>0$, then set the buying region $B^{n+1} = \{(x,q)|x = x_p^{n+1}(q)\}$, where 
+    \begin{equation*}
+      x_p^{n+1}(q) =  \arg \max_{x} \mathcal{B}V^{n}(x,q).
+    \end{equation*}
   
-  \item $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
+  \item Else, set the selling region $S^{n+1} = \{(x,q)|x\geq x_s^{n+1}(q)\}$, where 
+    \begin{equation*}
+      x_s^{n+1}(q) = \arg\max_{x} \mathcal{S}V^{n}(x,q) 
+    \end{equation*}
+  
+  \item Set the holding region as $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
   \item $n = n + 1$.
   \end{enumerate}
-\item If previous loop ends when $n = N$ because of $B^{N} \neq \emptyset$, keep doing the following  until convergence. $n$ starts as $N$.
+\item If previous loop ends when $n = N$ because of buying region becoming non-empty, then keep doing the following  until convergence. Here $n$ starts with $N$.
   \begin{enumerate}
-  \item Solve the fixed boundary problem with $(H^n,S^n,B^n)$ and the solution is denoted as $V^{n}(x,q)$.
-  \item If $n$ is odd, $B^{n+1} = B^{n}$. Move down the selling boundary $\partial S^n$ to the maximal selling profitable points to have $S^{n+1}$ as previously.
-  \item If $n$ is even, $S^{n+1} = S^{n}$. Move up and down buying boundary $\partial B^{n+1}$ to the maximal buying profitable points. Mathematically speaking, $B^{n+1} = \{(x,q)|x_l^{n+1}(q)\leq x\leq x_u^{n+1}(q)\}$ where 
-  \begin{equation*}
-  \begin{split}
-  x_l^{n+1}(q) &= \arg\max_{x<x_l^{n}(q)}\left(V^n_q(x,q) - e^x - \lambda(q)\right)\\
-  x_u^{n+1}(q) &= \arg\max_{x>x_u^{n}(q)}\left(V^n_q(x,q) - e^x - \lambda(q)\right)\\
-  x_l^{N}(q) &= x_u^{N}(q) = x_M^{N}(q)
-  \end{split}
-  \end{equation*}
-  \item $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
+  \item Calculate the value function $V^{n}(x,q)$.
+  \item If $n$ is odd, then the buying region remains the same, $B^{n+1} = B^{n}$, and the selling region is updated to $S^{n+1} = \{(x,q)|x\geq x_s^{n+1}(q)\}$.
+
+
+  \item If $n$ is even, then selling region remains the same, $S^{n+1} = S^{n}$, and buying region is updated to $B^{n+1} = \{(x,q)|x_l^{n+1}(q)\leq x\leq x_u^{n+1}(q)\}$, where
+    \begin{equation*}
+    \begin{split}
+        x_u^{n+1}(q) &= \arg\max_{x\geq x_u^{n}(q)} \mathcal{B}V^{n+1}(x,q),\\
+        x_l^{n+1}(q) &= \arg\max_{x\leq x_l^{n}(q)} \mathcal{B}V^{n+1}(x,q).
+    \end{split}
+    \end{equation*}  
+  Here $x_u^{N}(q) = x_l^{N}(q) = x_p^{N}(q)$.
+  
+  \item Set the holding region as $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
   \item $n = n + 1$. 
    \end{enumerate}
 \end{enumerate}
 
-Notice that each time only one of selling and buying boundaries moves and both selling region and buying region are increasing. These are critical in the proof of the monotonicity $V^{n}$.\\
+Notice that each time only one of selling and buying boundaries moves and both selling region and buying region are increasing. Here and after, the movement of a boundary has the same meaning as the change of the related region. These two facts are critical in the proof of the monotonicity of the value functions $V^{n}$.\\
 
-In order to show this algorithm works, 3 things need to be proved.
+In order to show this algorithm works, three things need to be proved.
 \begin{enumerate}
   \item The existence of $M_0$.
   \item $V^{n}$ is monotone increasing.
-  \item The boundaries can be kept moving.
+  \item The boundaries can keep moving.
+  \item The convergence function is the optimal.
 \end{enumerate}
 
 
 \subsection{The existence of $M_0$}
 
 \begin{Lemma}\label{LemmaExiM_0}%existence of M_0
-$\forall \q>0,~\exists M_0(\q)~ s.t.~\{(x,q)| x \geq M_0(\q), q = \q\} \subset S^*$
+For any positive storage level, $\q>0$, there exists a number $M_0(\q)$ such that region $\{(x,q)| x \geq M_0(\q), q = \q\}$ is contained by the optimal selling region $S^*$.
 \end{Lemma}
 
 \begin{proof}
-First, in order to make money, for any buying price, there must be a higher selling price. Mathematically speaking, $\forall (x_1,q) \in B^*~ \exists x_2 > x_1 ~s.t.~ (x_2,q) \in S^*$.\\
-
-If the lemma doesn't hold, combining the observation above, $\exists M_0(\q),~\q > Q_{\min}$ such that $\{(x,\q)|x>M_0(\q)\} \subset H^*$. Without losing any generality, let $M_0(\q)>\alpha$. In other words, $\forall x>M_0(\q)$ 
-
-\begin{equation*}
-\begin{split}
-V_q(x,\q) & \leq e^{x} + \lambda(\q)\\
-\LL V(x,\q) &=  0\\
-V_q(x,\q) &\geq e^{x} - \mu(\q).\\
-\end{split}
-\end{equation*}
-Take derivative with respect to $q$ to both sides of second equality,
-\begin{equation*}
-\begin{split}
-V_q(x,\q) & \leq e^{x} + \lambda(\q)\\
-\LL V_q(x,\q) &=  0\\
-V_q(x,\q) &\geq e^{x} - \mu(\q).\\
-\end{split}
-\end{equation*}
+First, in order to make money, for any buying price, there must be a higher selling price. As a result, the optimal buying region won't contain a region with infinite upper bound. Thus if lemma \ref{LemmaExiM_0} doesn't hold, it is the optimal holding region $H^*$ that the region $\{(x,\q)|x>M_0(\q)\}$ belongs to. In other words, for any log price $x$ larger than the number $M_0(\q)$, 
+    \begin{equation}\label{Eq:Hold}
+    \begin{split}
+    \LL V(x,\q) &=  0\\
+    \mathcal{S} V(x,\q) &\leq 0.\\
+    \mathcal{B} V(x,\q) &\leq 0\\
+    \end{split}
+    \end{equation}
 Define
 \begin{equation}\label{h}
-h(x) = V_q(x,\q) - (e^x -\mu(\q)).
+h(x) = -\mathcal{S}V(x,\q) = V_q(x,\q) - (e^x -\mu(\q)).
 \end{equation}
-Therefore, $\forall x>M_0(\q)$
+Because $- \mathcal{S}V(x,q) = \mathcal{B}V(x,q) + (\lambda(q) + \mu(q))$, together with the last two inequalities of (\ref{Eq:Hold}), we have 
 \begin{equation}\label{hin}
-0\leq h(x) \leq \lambda(\q) + \mu(\q).
+0\leq h(x) \leq \lambda(\q) + \mu(\q) \quad \forall x > M_0(\q).
 \end{equation}
-Substitute (\ref{h}) into $\LL V_q(x,\q) = 0$, 
+On the other hand, take derivative with respect to $q$ to both sides of first equality of (\ref{Eq:Hold}) and we have $\LL V_q(x,\q) =  0$. Substitute (\ref{h}) into it to have 
 \begin{equation*}
 \frac{1}{2}\sigma^2h''(x) + k(\alpha-x)h'(x) - \beta h(x) = - \frac{1}{2}\sigma^2 e^x + k (x- \alpha)e^x + \beta(e^x - \mu(\q)).
 \end{equation*}
 Divide both sides by $e^x$,
-
 \begin{equation}\label{hPDE}
   \frac{1}{2}\sigma^2e^{-x}h''(x) + ke^{-x}(\alpha-x)h'(x) - \beta e^{-x}h(x) = - \frac{1}{2}\sigma^2+ k (x- \alpha) + \beta(1 - e^{-x}\mu(\q)).
 \end{equation}
-
-Because $\mu(\q)$ is bounded, right hand side of (\ref{hPDE}) goes to $+\infty$ when $x \rightarrow +\infty$. Furthermore, by (\ref{hin}), $h(x)$ is bounded. Combine these two, when $x \rightarrow +\infty$, either 
-
+Because the buying cost, $\mu(\q)$, is bounded, the right-hand side of (\ref{hPDE}) goes to the positive infinity when $x$ approaches the positive infinity. Meanwhile, by (\ref{hin}), function $h(x)$ is bounded. Combine these two, when $x$ approaches the positive infinity, either 
 \begin{enumerate}
-  \item $e^{-x}h''(x)\rightarrow +\infty$.\\
-  or 
-  \item $e^{-x}(\alpha-x)h'(x) \rightarrow +\infty$
+  \item $e^{-x}h''(x)\rightarrow +\infty$ or 
+  \item $e^{-x}(\alpha-x)h'(x) \rightarrow +\infty$.
 \end{enumerate}
-
-
-Let $t_2 > t_1 > \alpha$ and without losing any generality both $e^{-x}h''(x)$ and $e^{-x}(\alpha-x)h'(x)$ are positive on $[t_1,t_2]$. \\
-
-In first case, by Fubini's theorem,
-
+In first case, because $e^{-x}h''(x)$ approaches the positive infinity when $x$ approaches positive infinity, there must exist a number $t_1$ such that $h''(x)$ is positive for any $x$ larger than $t_1$. For any $t_2$ larger than $t_1$, by Fubini's theorem, we have
 \begin{equation}\label{Fubini}
 \begin{split}
 h(t_2) - h(t_1) &= \int_{t_1}^{t_2}h'(t)dt = \int_{t_1}^{t_2}(\int_{t_1}^{t}h''(x)dx+h'(t_1))dt\\
@@ -477,36 +308,28 @@ h(t_2) - h(t_1) &= \int_{t_1}^{t_2}h'(t)dt = \int_{t_1}^{t_2}(\int_{t_1}^{t}h''(
 & = e^{t_1} \int_{t_1}^{t_2}\left((t_2-x)e^{-x}h''(x) + e^{-t_1}h'(t_1) \right)dx.
 \end{split}
 \end{equation}
-
 With $t_1$ fixed, when $t_2 \rightarrow +\infty$, the right hand side approaches positive infinity. This is a contradiction with $(\ref{hin})$.\\
-
-In the second case,
+In the second case, because $e^{-x}(\alpha-x)h'(x)$ approaches the positive infinity when $x$ approaches positive infinity, there must exist a number $t_1 > \alpha$ such that $(\alpha -x)h'(x)$ is positive for any $x$ larger than $t_1$. On the other hand, $e^x/(\alpha -x)$ is a decreasing function when $x$ is large enough. Without losing any generality, assume it is decreasing for all $x$ that is bigger than $t_1$. For any $t_2$ larger than $t_1$, we have
 \begin{equation}
 \begin{split}
 h(t_2) - h(t_1) &= \int_{t_1}^{t_2} h'(t)dt \\
-&= \int_{t_1}^{t_2} \frac{e^t}{a-t} \frac{(a-t)h'(t)}{e^t}dt\\
-&\leq \frac{e^{t_1}}{a-t_1} \int_{t_1}^{t_2}\frac{(a-t)h'(t)}{e^t}dt.
+&= \int_{t_1}^{t_2} \frac{e^t}{\alpha-t} \frac{(\alpha-t)h'(t)}{e^t}dt\\
+&\leq \frac{e^{t_1}}{\alpha-t_1} \int_{t_1}^{t_2}\frac{(\alpha-t)h'(t)}{e^t}dt.
 \end{split}
 \end{equation}
-
 With $t_1$ fixed, when $t_2 \rightarrow +\infty$, the right hand side approaches negative infinity. This is also a contradiction with $(\ref{hin})$.\\
 \end{proof}
 
-We have proved that for each $\q$, there exists a suitable $M_0(\q)$. Because discretization is used when solving the HJB equation, only finite number of $M_0(\q)$ matter. The maximal of those is $M_0$.\\
-
-If the condition below holds, a proposed $M_0$ is large enough. Otherwise, it is not.
-
+Because we use the discretization method to solve the HJB equation (\ref{HJB}), only finite number of $M_0(\q)$ matter. The maximal of those is $M_0$. A proposed $M_0$ is large enough if it satisfies
 \begin{equation*}
-  \left(-V_q(x,q) + (e^x - \mu(q))\right)_x|_{x = M_0} < 0 ~\forall q \in (Q_{\min},Q_{\max}]
+  \left(\mathcal{S}V(x,q)\right)_x|_{x = M_0} < 0 \quad \forall q \in (Q_{\min},Q_{\max}].
 \end{equation*}
- 
-This criterion guarantees $M_0$ can be found in practice.
 
 \subsection{$V^{n}$ is monotone increasing}
-Two lemmas are needed.
+We need two lemmas to prove the monotonicity.
 
 \begin{Lemma}\label{LemmaMaxPr} %maximum principle
-If $\LL f = 0$, $f$ achieves the positive maximal and negative minimum at the boundary.
+If $\LL f = 0$, function $f$ can't achieve the positive maximal or negative minimum at an interior point.
 \end{Lemma}
 
 \begin{proof}
@@ -519,74 +342,51 @@ Assume that there exists $x_M$ which is the positive maximal interior point. The
 \end{split}
 \end{equation}
 
-Contradiction! Negative minimum case can be proved using similar method.
-\end{proof}
+Contradiction! We can use the similar argument to prove the negative minimum case.\end{proof}
 
 \begin{Lemma}\label{LemmaMutEx}%mutually exclusive optimal buying and selling policies
-Denote $I_{\x} = \{(x,q)|x=\x, q \in [Q_{\min},Q_{\max}]\}$. $\nexists \x$ such that both $ I_{\x} \cap S^*\neq \emptyset$ and $I_{\x} \cap B^* \neq \emptyset$ hold simultaneously.
+At the same log price level $\x$, there won't exist two storage levels $q_1$ and $q_2$ such that selling is optimal at $(\x,q_1)$ while buying is optimal at $(\x,q_2)$.
 \end{Lemma}
 
 \begin{proof}
-If not, there must exist $(\x,q_1)$ on then buying boundary and $(\x,q_2)$ on the selling boundary. 
-
-Define
-\begin{equation}\label{DFf}
-f(x) = V_q(x,q_1) - (e^{x} + \lambda(q_1)).
-\end{equation}
-
-By definition, $f(\x) = 0$. If $V_q$ is continuous across boundary, $f'(\x) = 0$. By HJB equation, $f(x)$ achieves its maximum at point $\x$. Because $f(x)$ may not be second order continuous, we need to consider two cases.
-
+If not, without losing any generality, assume that $(\x,q_1)$ is on the buying boundary and $(\x,q_2)$ is on the selling boundary. Define function $f(x)$ as the buying profit function, $\mathcal{B}V(x,q_1)$. Because $(\x,q_1)$ is on the buying boundary, $f(\x) = 0$. By HJB equation (\ref{HJB}), $f(x)$ achieves its maximum at point $\x$. If function $f$ is differentiable, then $f'(\x) = 0$ because $\x$ is the maximal point. We need to consider two cases.
 \begin{enumerate}
   \item Holding region is above $(\x,q_1)$.
   \item Holding region is below $(\x,q_1)$.
 \end{enumerate}
-
-From maximal property and $f'(\x) = 0$, we have $f''(\x+) \leq 0,~f''(\x-) = 0$ for the first and $f''(\x+)= 0,~f''(\x-) \leq 0$ for the second. In the first case,
-
+Because function $f(x)$ may not be second order continuous, we need to consider the left and right derivative separately. From maximal property and $f'(\x) = 0$, we have $f''(\x+) \leq 0,~f''(\x-) = 0$ for the first case and $f''(\x+)= 0,~f''(\x-) \leq 0$ for the second. In the first case,
 \begin{equation*}
 \LL f(\x+) = \frac{1}{2} \sigma^2 f''(\x+) + k(\alpha- \x)f'(\x) -\beta f(\x) = \frac{1}{2} \sigma^2 f''(\x+) \leq 0.
 \end{equation*}
-
 On the other hand, 
-
-\begin{equation}\label{eq3}
+\begin{equation*}
 \begin{split}
-\LL f(\x+) &= \LL V_q(\x+,q_1) - \LL(e^x + \lambda(q_1))|_{x=\x} \\
+\LL f(\x+) = \LL(\mathcal{B}V(\x+,q_1))&= \LL V_q(\x+,q_1) - \LL(e^x + \lambda(q_1))|_{x=\x} \\
 &= \left(\LL V(\x+,q_1)\right)_q- \LL(e^x + \lambda(q_1))|_{x=\x}\\
 &= - \LL(e^x + \lambda(q_1))|_{x=\x}.\\
 \end{split}
-\end{equation}
-
-Therefore,
-
-\begin{equation}\label{geqbuy}
-\frac{1}{2} \sigma^2 e^{\x} + k(\alpha -\x) e^{\x} - \beta (e^{\x} +\lambda(q_1))) \geq 0.
-\end{equation}
-
-In the second case, the same equality can be achieved using similar arguments above.\\
-
-Define
-\begin{equation*}
-g(x) = - V_q(x,q_2) + (e^{x} - \mu(q_2)).
 \end{equation*}
+As a result,
+\begin{equation}\label{geqbuy}
+\frac{1}{2} \sigma^2 e^{\x} + k(\alpha -\x) e^{\x} - \beta (e^{\x} +\lambda(q_1))) = \LL(e^x + \lambda(q_1))|_{x=\x} \geq 0.
+\end{equation}
+In the second case, we can achieve the same equality using similar derivation above.\\
 
-Replicate the same analysis for $f$ to have
-
+Define $g(x) = \mathcal{S}V(x,q_2)$. We can replicate the same analysis above to have
 \begin{equation}\label{leqsell}
 \frac{1}{2} \sigma^2 e^{\x} + k(\alpha -\x) e^{\x} - \beta (e^{\x} -\mu(q_2))) \leq 0.
 \end{equation}
-
 Because $\lambda$ and $\mu$ are positive, (\ref{geqbuy}) and (\ref{leqsell}) can't hold simultaneously which is a contradiction. 
 
 \end{proof}
 
 \begin{Theorem}\label{incrs}
-$V^{n+1} \geq V^{n}$.
+The value function $V^{n+1}$ with the region triplet $(H^{n+1},S^{n+1},B^{n+1})$ is larger than the value function $V^{n}$ with the regions triplet $(H^n,S^n,B^n)$.
 \end{Theorem}
 
 \begin{proof}
 
-By the definitions of $(V^n,H^n,S^n,B^n)$ and the way boundary moves, we have
+By equation (\ref{Eq:Vn}) and the way the algorithm works, for $V^n$, we have
   
 \begin{equation}\label{Vn}
 \begin{array}{ll}
@@ -597,11 +397,7 @@ V^{n}_q(x,q) - e^x - \lambda(q) = 0 & (x,q) \in B^{n}\\
 V^{n}_q(x,q) - e^x - \lambda(q) > 0 & (x,q) \in B^{n+1}/B^{n}.\\
 \end{array}
 \end{equation}
-
-Here we also use the monotonicity of $H^n,~S^n$ and $B^n$, i.e. $H^{n} \supset H^{n+1},~S^{n} \subset S^{n+1}$ and $B^{n} \subset B^{n+1}$.\\
- 
-The definition of  $(V^{n+1},H^{n+1},S^{n+1},B^{n+1})$ gives us
-
+For $V^{n+1}$, we have
 \begin{equation}\label{Vn+1}
 \begin{array}{ll}
 \LL V^{n+1}(x,q) = 0& (x,q) \in H^{n+1}\\
@@ -611,9 +407,7 @@ V^{n+1}_q(x,q) - e^x - \lambda(q) = 0 & (x,q) \in B^{n}\\
 V^{n+1}_q(x,q) - e^x - \lambda(q) = 0 & (x,q) \in B^{n+1}/B^{n}.\\
 \end{array}
 \end{equation}
-
-Introduce $\Delta V^{n+1}(x,q) = V^{n+1}(x,q) - V^{n}(x,q)$. From (\ref{Vn}) and (\ref{Vn+1})  
-
+Here we also use the monotonicity of $H^n,~S^n$ and $B^n$, that is to say, $H^{n} \supset H^{n+1},~S^{n} \subset S^{n+1}$ and $B^{n} \subset B^{n+1}$. Introduce $\Delta V^{n+1}(x,q) = V^{n+1}(x,q) - V^{n}(x,q)$. From (\ref{Vn}) and (\ref{Vn+1}), we can deduce   
 \begin{equation}\label{dV}
 \begin{split}
 \LL \Delta V^{n+1}(x,q) &= 0 \quad (x,q) \in H^{n+1}\\
@@ -623,9 +417,7 @@ Introduce $\Delta V^{n+1}(x,q) = V^{n+1}(x,q) - V^{n}(x,q)$. From (\ref{Vn}) and
 \Delta V_q^{n+1}(x,q) &< 0 \quad (x,q) \in B^{n+1}/B^{n}.\\
 \end{split}  
 \end{equation}
-
-Recall that in the algorithm, only one of selling and buying boundary moves. (\ref{dV}) can be further divided into two cases.
-
+Because only one of selling and buying region changes, we can further divide it into two cases.
 \begin{enumerate}
   \item Only selling boundary moves, namely 
 \begin{equation}\label{dVS}
@@ -636,68 +428,7 @@ Recall that in the algorithm, only one of selling and buying boundary moves. (\r
 \Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in B^{n+1} = B^{n}\\
 \end{split}  
 \end{equation}
-
-Take derivative with respect to $q$ in the first equality above to have 
-
-\begin{equation}\label{dVqS}
-\begin{split}
-\LL \Delta V^{n+1}_q(x,q) &= 0 \quad (x,q) \in H^{n+1}\\
-\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in S^{n}\\
-\Delta V_q^{n+1}(x,q) &> 0 \quad (x,q) \in S^{n+1}/S^{n}\\
-\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in B^{n+1} = B^{n}.\\
-\end{split}  
-\end{equation}
-
-By Lemma \ref{LemmaMaxPr}, $\Delta V^{n+1}_q \geq 0$ holds for all points. Right now focus on the set $\{(x,Q_{\min})|x \in \mathbb{R}\}$. Only holding and buying are possible policy on this set because there is nothing to sell.
-\begin{enumerate}
-  \item Hold at $(x,Q_{\min})$. Directly from the first equality of (\ref{dVS}), we have
-  \begin{equation*}
-  \LL \Delta V^{n+1}(x,Q_{\min}) = 0
-  \end{equation*}
-  \item Buy at $(x,Q_{\min})$. By Lemma \ref{LemmaMutEx}, on this log price level $x$, there will only be holding and buying policy. Especially, we will hold at $(x,Q_{\max})$ because there is no place to inject. Therefore,
-  
-\begin{equation*}
-  \LL \Delta V^{n+1}(x,Q_{\max}) = 0.
-\end{equation*}
- 
-By (\ref{dVqS}),
-\begin{equation*}
-    \LL \Delta V^{n+1}_q(x,q) = 0 \quad \forall (x,q) \in H^{n+1}\cup B^{n+1}.
-\end{equation*}
-
-As mentioned above, only holding and buying are possible. Thanks to above equality, 
-
-\begin{equation*}
-  \int_{Q_{\min}}^{Q_{\max}}\LL \Delta V^{n+1}_q(x,q)dq = 0.
-\end{equation*}
-
-Thus,
-  \begin{equation*}
-  \begin{split}
-  \LL \Delta V^{n+1}(x,Q_{\min}) &= \LL \left(\Delta V^{n+1}(x,Q_{\max}) - \int_{Q_{\min}}^{Q_{\max}}\Delta V^{n+1}_q(x,q)dq\right)\\
-  &= \LL \Delta V^{n+1}(x,Q_{\max}) - \int_{Q_{\min}}^{Q_{\max}}\LL \Delta V^{n+1}_q(x,q)dq = 0.\\
-  \end{split}
-  \end{equation*}
-  
-\end{enumerate}
-
-We have proved that 
-\begin{equation*}
-  \LL \Delta V^{n+1}(x,Q_{\min}) = 0 \quad \forall x \in \mathbb{R}.
-\end{equation*}
-  
-This implies $ \Delta V^{n+1}(x,Q_{\min}) = 0$ because $0$ is the only finite function that satisfy above equation. Therefore,
-
-\begin{equation*}
-\begin{split}
-  \Delta V^{n+1}(x,q) &= \Delta V^{n+1}(x,Q_{\min}) + \int_{Q_{\min}}^q \Delta V^{n+1}_q(x,q)dq \\
-  & = \int_{Q_{\min}}^q \Delta V^{n+1}_q(x,q)dq \geq 0
-\end{split}
-\end{equation*}
-
-The last inequality holds because of $\Delta V^{n+1}_q \geq 0$.
-
-  \item Only buying boundary moves, namely
+ \item Only buying boundary moves, namely
 \begin{equation}\label{dVB}
 \begin{split}
 \LL \Delta V^{n+1}(x,q) &= 0 \quad (x,q) \in H^{n+1}\\
@@ -706,17 +437,56 @@ The last inequality holds because of $\Delta V^{n+1}_q \geq 0$.
 \Delta V_q^{n+1}(x,q) &< 0 \quad (x,q) \in B^{n+1}/B^{n}.\\
 \end{split}  
 \end{equation}
-
-Using similar method to have $\Delta V^{n+1}_q \leq 0$ and $\Delta V^{n+1}(x,Q_{\max}) = 0$. Then
-
+In the first case, take derivative with respect to $q$ in the first equality of equation (\ref{dVS}) to have 
+\begin{equation}\label{dVqS}
+\begin{split}
+\LL \Delta V^{n+1}_q(x,q) &= 0 \quad (x,q) \in H^{n+1}\\
+\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in S^{n}\\
+\Delta V_q^{n+1}(x,q) &> 0 \quad (x,q) \in S^{n+1}/S^{n}\\
+\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in B^{n+1} = B^{n}.\\
+\end{split}  
+\end{equation}
+By Lemma \ref{LemmaMaxPr}, $\Delta V^{n+1}_q \geq 0$ holds for all points. Right now focus on the set $\{(x,Q_{\min})|x \in \mathbb{R}\}$. Only holding and buying are possible policy on this set because there is nothing to sell.
+\begin{enumerate}
+  \item Hold at $(x,Q_{\min})$. Directly from the first equality of (\ref{dVS}), we have
+  \begin{equation*}
+  \LL \Delta V^{n+1}(x,Q_{\min}) = 0
+  \end{equation*}
+  \item Buy at $(x,Q_{\min})$. By Lemma \ref{LemmaMutEx}, at this log price level $x$, there won't be a selling policy because we already buy at $(x,Q_{\min})$. Especially, we will hold at $(x,Q_{\max})$ because there is no place to inject. Therefore, $\LL \Delta V^{n+1}(x,Q_{\max}) = 0$. Meanwhile, by (\ref{dVqS}),
+\begin{equation*}
+    \LL \Delta V^{n+1}_q(x,q) = 0 \quad \forall (x,q) \in H^{n+1}\cup B^{n+1}.
+\end{equation*}
+Since buying and holding are the only policies at $x$, together with above equality,
+\begin{equation*}
+  \int_{Q_{\min}}^{Q_{\max}}\LL \Delta V^{n+1}_q(x,q)dq = 0.
+\end{equation*}
+Thus,
+  \begin{equation*}
+  \begin{split}
+  \LL \Delta V^{n+1}(x,Q_{\min}) &= \LL \left(\Delta V^{n+1}(x,Q_{\max}) - \int_{Q_{\min}}^{Q_{\max}}\Delta V^{n+1}_q(x,q)dq\right)\\
+  &= \LL \Delta V^{n+1}(x,Q_{\max}) - \int_{Q_{\min}}^{Q_{\max}}\LL \Delta V^{n+1}_q(x,q)dq = 0.\\
+  \end{split}
+  \end{equation*}
+\end{enumerate}
+We have proved that 
+\begin{equation*}
+  \LL \Delta V^{n+1}(x,Q_{\min}) = 0 \quad \forall x \in \mathbb{R}.
+\end{equation*}
+This implies $ \Delta V^{n+1}(x,Q_{\min}) = 0$ because $0$ is the only finite function that satisfy the above equation. Therefore,
+\begin{equation*}
+\begin{split}
+  \Delta V^{n+1}(x,q) &= \Delta V^{n+1}(x,Q_{\min}) + \int_{Q_{\min}}^q \Delta V^{n+1}_q(x,q)dq \\
+  & = \int_{Q_{\min}}^q \Delta V^{n+1}_q(x,q)dq \geq 0
+\end{split}
+\end{equation*}
+The last inequality holds because of $\Delta V^{n+1}_q \geq 0$.\\
+In the second case, we can use very similar method to have $\Delta V^{n+1}_q \leq 0$ and $\Delta V^{n+1}(x,Q_{\max}) = 0$. Then
 \begin{equation*}
 \begin{split}
   \Delta V^{n+1}(x,q) &= \Delta V^{n+1}(x,Q_{\max}) - \int_{q}^{Q_{\max}} \Delta V^{n+1}_q(x,q)dq \\
   & = - \int_{Q_{\min}}^q \Delta V^{n+1}_q(x,q)dq \geq 0
 \end{split}
 \end{equation*}
-
-
 \end{enumerate}
 
 %There are four kinds of boundaries movement and we will prove the monotonicity in each case.\\
@@ -733,52 +503,41 @@ Using similar method to have $\Delta V^{n+1}_q \leq 0$ and $\Delta V^{n+1}(x,Q_{
 
 \subsection{The boundaries can keep moving}
 
-From the algorithm, the boundaries can move if and only if the following Theorem holds.
+From the algorithm, the boundaries can move if and only if the following theorem holds.
 
 \begin{Theorem}
-Three inequalities below are true for all $n$ and $q \in [Q_{\min},Q_{\max}]$.
+Three inequalities below are true for all integer $n$ and storage level $q$.
 \begin{equation*}
 \begin{split}
-\left(-V_q^{n+1}(x,q) + e^{x}-\mu(q)\right)_x|_{x = x^{n+1}(q)} &\leq 0\\
-\left(V_q^{n+1}(x,q) - e^{x}-\lambda(q)\right)_x|_{x = x_u^{n+1}(q)} & \geq 0\\
-\left(V_q^{n+1}(x,q) - e^{x}-\lambda(q)\right)_x|_{x = x_l^{n+1}(q)} & \leq 0\\
+\left(\mathcal{S}V(x,q)\right)_x|_{x = x_s^{n+1}(q)} & < 0\\
+\left(\mathcal{B}V(x,q)\right)_x|_{x = x_u^{n+1}(q)} & > 0\\
+\left(\mathcal{B}V(x,q)\right)_x|_{x = x_l^{n+1}(q)} & < 0\\
 \end{split}
 \end{equation*}
-
+When $x_u^{n+1}(q)$ and $x_l^{n+1}(q)$ don't exist, we assume the last two inequalities are true automatically.
 
 \end{Theorem}
 
-\begin{proof}
-    Still only the statement for selling boundary is proved. 
-    
-    \begin{enumerate}
-      \item In stage 1, the selling boundary is moved.
-      \item In stage 2, the buying boundary is moved.
-    \end{enumerate}
-     
-    In the first case, from previous proof, with $q$ fixed, $f(x) = \Delta V_q^{n+1}(x,q)$ achieves its maximum at point $x_S$ where $(x_S,q) \in S^{n+1}/S^{n}$. This is equivalent to 
-    $f'(x_S) > 0.$\footnote{If $f'(x_s) = 0$, by $\LL f(x_s) = 0$, $0<\beta f = \frac{1}{2}\sigma^2 f''(x)\leq 0$. Contradiction!} Thus, 
-    
-    \begin{equation}
-    \begin{split}
-      &(\Delta V_q^{n+1})_x(x_S,q) = f'(x_S) > 0\\
-      \Rightarrow & (V_q^{n+1})_x(x_S,q) -(V_q^{n})_x(x_S,q) >0\\
-      \Rightarrow & (V_q^{n+1})_x(x_S,q) - e^{x_S} > 0 \\
-      \Rightarrow & \left(V_q^{n+1}(x,q) - (e^{x}-\mu(q)\right)_x|_{x = x_S} > 0 \\ 
-      \Rightarrow & \left(-V_q^{n+1}(x,q) + (e^{x}-\mu(q)\right)_x|_{x = x_S} < 0.
-    \end{split}
-    \end{equation}
-    
-    Noticing that the only thing used here is that $x_S$ is the maximum. In the second case, it can be proved similarly that $x_S$ is also the maximum. See the figure (\ref{2ndstage}) for the idea. 
-    
-    \begin{figure}[hbt]\label{2ndstage}
-      \includegraphics{deltaVstage2.eps}
-      \caption{The equations that $\Delta V^{n+1}$ satisfies in the second stage.}
-    \end{figure}
-    
-    
-    Therefore we prove that we can continue moving the boundary.
-
+\begin{proof} 
+Introduce function $f(x) = \Delta V_q^{n+1}(x,q)$ with any fixed storage level $q$. As mentioned before, there are two cases namely only the selling boundary moves and only the buying. In the first case, from previous proof, $f(x)$ are non-negative at all points and achieves its maximum at point $x_s^{n+1}(q)$. Therefore $f'(x_s^{n+1}(q)) > 0$ or  $f'(x_s^{n+1}(q)) = 0$. Because $\LL f(x_s^{n+1}(q)) = 0$, if the latter is true, then we have $0<\beta f(x_s^{n+1}(q)) = \frac{1}{2}\sigma^2 f''(x_s^{n+1}(q))\leq 0$ which is a contradiction. As a result, we proved that $f'(x_s^{n+1}(q)) > 0$.
+\begin{equation}\label{EqKeepMove}
+\begin{split}
+&(\Delta V_q^{n+1})_x(x_s^{n+1}(q),q) = f'(x_s^{n+1}(q)) > 0\\
+\Rightarrow & (V_q^{n+1})_x(x_s^{n+1}(q),q) -(V_q^{n})_x(x_s^{n+1}(q),q) >0\\
+\Rightarrow & (V_q^{n+1})_x(x_s^{n+1}(q),q) - e^{x_s^{n+1}(q)} > 0 \\
+\Rightarrow & \left(V_q^{n+1}(x,q) - (e^{x}-\mu(q)\right)_x|_{x = x_s^{n+1}(q)} > 0 \\ 
+\Rightarrow & \left(-V_q^{n+1}(x,q) + (e^{x}-\mu(q)\right)_x|_{x = x_s^{n+1}(q)} < 0.\\
+\Rightarrow & \left(\mathcal{S}V(x,q)\right)_x|_{x = x_s^{n+1}(q)}  < 0
+\end{split}
+\end{equation}
+Because the buying boundary remains, $f(x_u^{n+1}(q)) = f(x_l^{n+1}(q))= 0$. Non-negativity and previous fact implies that $f(x)$ achieves the minimum at $x_u^{n+1}(q)$ and $x_l^{n+1}(q)$. Using similar arguments as $x_s^{n+1}(q)$ to have 
+\begin{equation*}
+\begin{split}
+\left(\mathcal{B}V(x,q)\right)_x|_{x = x_u^{n+1}(q)} & > 0\\
+\left(\mathcal{B}V(x,q)\right)_x|_{x = x_l^{n+1}(q)} & < 0\\
+\end{split}
+\end{equation*}
+In the second case that only the buying moves, $f(x)$ still achieves the maximum at $x_s^{n+1}(q)$ and the minimum at $x_u^{n+1}(q)$ and $x_l^{n+1}(q)$. Thus we still have those three strict inequalities hold.
 \end{proof}
 
 
@@ -968,13 +727,7 @@ Three inequalities below are true for all $n$ and $q \in [Q_{\min},Q_{\max}]$.
 %
 %\end{proof}
 %
-    \section{The moving conditions are always satisfied. This is to say, we can keep moving the boundary.}
-    
-    \begin{proof}
-    
-     
-    \end{proof}
-%
+
 %
 %
 %\section{The optimal policy will sell or buy(I need to prove that it is only sell that is possible) when the price is high enough. Namely, holding region always has a higher bound.}

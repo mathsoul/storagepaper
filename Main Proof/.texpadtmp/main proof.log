@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  11 AUG 2015 14:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  11 AUG 2015 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -351,15 +351,15 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 370.
  [8] [9] (/Users/zhaolong/storagepaper/Main Proof/.texpadtmp/main proof.aux) ) 
 Here is how much of TeX's memory you used:
- 4621 strings out of 493315
- 67646 string characters out of 6137904
- 155078 words of memory out of 5000000
- 7789 multiletter control sequences out of 15000+600000
- 55067 words of font info for 230 fonts, out of 8000000 for 9000
+ 4628 strings out of 493315
+ 67704 string characters out of 6137904
+ 155086 words of memory out of 5000000
+ 7790 multiletter control sequences out of 15000+600000
+ 55365 words of font info for 234 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,16n,35p,876b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/Users/zhaolong/storagepaper/Main Proof/.texpadtmp/main proof.pdf" (9 pages, 128842 bytes).
+Output written on "/Users/zhaolong/storagepaper/Main Proof/.texpadtmp/main proof.pdf" (9 pages, 129780 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  53 compressed objects within 1 object stream

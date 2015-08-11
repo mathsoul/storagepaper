@@ -375,6 +375,21 @@ By Feynman-Kac formula, $\Delta V^{n+1}$ is the value function with regions trip
 
 From the algorithm, the boundaries can move if and only if the following theorem holds.
 
+\begin{Lemma}\label{maxi1}
+If $\mathcal{L}f(x) = 0,~l\leq x \leq u$ and $f(l) <0, f(u) >0$, $f(u)$ is the maximum and $f(l)$ is the minimum.
+\end{Lemma}
+\begin{proof}
+Assume $u$ is not the maximum, then $f$ must achieve the maximum at an interior point, denoted as $x_M$. Thus $f(x_M)> f(u)>0$, $f'(x_M) =0$, and $f''(x_M) \leq 0$. By $\mathcal{L}f(x_M) = 0$, 
+	\begin{equation*}
+	\begin{split}
+  		&\frac{1}{2}\sigma^2f''(x_M) + \kappa(\alpha - x_M)f'(x_M) - \beta f(x_M) = 0\\
+  		\Rightarrow~& 0< \beta f(x_M) = \frac{1}{2}\sigma^2f''(x_M) + \kappa(\alpha - x_M)f'(x_M) \leq 0
+	\end{split}
+	\end{equation*}
+Contradiction! We can use the similar argument to prove $f(l)$ is the minimum.
+\end{proof}
+
+
 \begin{Theorem}
 Three inequalities below are true for all integer $n$ and storage level $q$.
 \begin{equation*}
@@ -389,7 +404,8 @@ When $x_u^{n+1}(q)$ and $x_l^{n+1}(q)$ don't exist, we assume the last two inequ
 \end{Theorem}
 
 \begin{proof} 
-Introduce function $f(x) = \Delta V_q^{n+1}(x,q)$ with any fixed storage level $q$. As mentioned before, there are two cases namely only the selling boundary moves and only the buying. In the first case, from previous proof, $f(x)$ are non-negative at all points and achieves its maximum at point $x_s^{n+1}(q)$. Therefore $f'(x_s^{n+1}(q)) > 0$ or  $f'(x_s^{n+1}(q)) = 0$. Because $\LL f(x_s^{n+1}(q)) = 0$, if the latter is true, then we have $0<\beta f(x_s^{n+1}(q)) = \frac{1}{2}\sigma^2 f''(x_s^{n+1}(q))\leq 0$ which is a contradiction. As a result, we proved that $f'(x_s^{n+1}(q)) > 0$.
+Introduce function $f(x) = \Delta V_q^{n+1}(x,q)$ with any fixed storage level $q$. 
+Differentiate (\ref{dV})the first equation with respect to $q$, we have $\mathcal{L} f(x) = 0$, $x_u^{n+1}(q) \leq x \leq x_s^{n+1}(q)$. By Lemma (\ref{maxi1}), $f(x)$ achieves its maximum at point $x_s^{n+1}(q)$. Therefore $f'(x_s^{n+1}(q)) > 0$ or  $f'(x_s^{n+1}(q)) = 0$. Because $\LL f(x_s^{n+1}(q)) = 0$, if the latter is true, then we have $0<\beta f(x_s^{n+1}(q)) = \frac{1}{2}\sigma^2 f''(x_s^{n+1}(q))\leq 0$ which is a contradiction. As a result, we proved that $f'(x_s^{n+1}(q)) > 0$.
 \begin{equation}\label{EqKeepMove}
 \begin{split}
 &(\Delta V_q^{n+1})_x(x_s^{n+1}(q),q) = f'(x_s^{n+1}(q)) > 0\\
@@ -400,14 +416,13 @@ Introduce function $f(x) = \Delta V_q^{n+1}(x,q)$ with any fixed storage level $
 \Rightarrow & \left(\mathcal{S}V(x,q)\right)_x|_{x = x_s^{n+1}(q)}  < 0
 \end{split}
 \end{equation}
-Because the buying boundary remains, $f(x_u^{n+1}(q)) = f(x_l^{n+1}(q))= 0$. Non-negativity and previous fact implies that $f(x)$ achieves the minimum at $x_u^{n+1}(q)$ and $x_l^{n+1}(q)$. Using similar arguments as $x_s^{n+1}(q)$ to have 
+On the other hand, $f(x)$ achieves the minimum at $x_u^{n+1}(q)$ and $x_l^{n+1}(q)$. Using similar arguments as $x_s^{n+1}(q)$ to have 
 \begin{equation*}
 \begin{split}
 \left(\mathcal{B}V(x,q)\right)_x|_{x = x_u^{n+1}(q)} & > 0\\
 \left(\mathcal{B}V(x,q)\right)_x|_{x = x_l^{n+1}(q)} & < 0\\
 \end{split}
 \end{equation*}
-In the second case that only the buying moves, $f(x)$ still achieves the maximum at $x_s^{n+1}(q)$ and the minimum at $x_u^{n+1}(q)$ and $x_l^{n+1}(q)$. Thus we still have those three strict inequalities hold.
 \end{proof}
 
 

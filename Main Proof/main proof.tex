@@ -89,7 +89,17 @@
 %	ESSAY BODY
 %----------------------------------------------------------------------------------------
 
-%%%%%%% This part is wrong %%%%%%%%%%%%
+\section{Introduction}
+Valuing storage is a problem of significant interest in recent years, especially for energy-related commodities. Without storage, in environment with either relatively stable supply and fluctuating demand, or relatively stable demand and fluctuating supply, prices vary significantly over time. This price variation generates an incentive to shift supply from a period where it is in excess, to a period where it is in shortage. Storage derives its economic value from exploiting these predictable price fluctuations by shifting supply over time.
+
+Overview of storage valuation literature.
+
+In this paper, we study the problem of valuing storage specifically for the case of energy commodities. We are able to develop semi-analytical framework to price storage, allowing for mean-reverting price dynamics for the commodity, and general injection and withdrawal costs. Our framework is a generalization of the moving boundary method, described in \cite{}.
+
+Overview of moving boundary method.
+
+We apply our framework to study the value and optimal injection and withdrawal strategies for a calibrated example of crude oil/natural gas storage facility.
+
 
 \section{Model}
 
@@ -105,7 +115,7 @@ Take $X_t = \log(S_t)$, by Ito's formula,
 
 where $\alpha = \gamma - \frac{\sigma^2}{2\kappa}$.\\ 
 
-Denote the total amount of the commodity in the storage facility at time $t$ as $Q_t$. Also, denote cumulative amounts of commodity purchased and sold up to time $t$ as $L_t$ and $U_t$, respectively. Here and after, buy and inject have the same meaning, so do sell and withdraw.\\
+Denote the total amount of the commodity in the storage facility at time $t$ as $Q_t$. Also, denote cumulative amounts of commodity purchased and sold up to time $t$ as $L_t$ and $U_t$, respectively. Here and after, buy and injection have the same meaning, so do sell and withdrawal.\\
 
 The decisions are when and how much shall be injected and withdraw from the facility. In other words, every decision can be represented as a pair $(L_t,U_t)$. Because the change in storage is equal to the amount injected minus the amount withdrawed, we have
 \begin{equation}
@@ -114,7 +124,7 @@ The decisions are when and how much shall be injected and withdraw from the faci
 
 An admissible control policy $(L_t,U_t)$ must satisfy that the storage level at any time is within capabilities. That is to say, $Q_t \in [Q_{\min},Q_{\max}]$ for all $t$ where $Q_{\min}$ and $Q_{\max}$ are the upper and lower capability respectively. We use $\mathcal{U}$ to denote all admissible policies.\\
 
-Both injection and withdrawal generate costs. As a result, injection and withdrawal won't take place at the same time. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ unit. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{Q_{t-}}^{Q_{t}} \lambda(q) dq$ and $\int_{Q_{t}}^{Q_{t-}} \mu(q) dq$ respectfully.  It is often easier to inject(withdraw) when empty(full) than full(empty). Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing. To be economic meaningful, we also assume that $\lambda(q)$ and $\mu(q)$ are bounded.\\
+Both injection and withdrawal generate costs. As a result, injection and withdrawal won't take place at the same time. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ unit. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{Q_{t-}}^{Q_{t}} \lambda(q) dq$ and $\int_{Q_{t}}^{Q_{t-}} \mu(q) dq$ respectfully.  It is often easier to inject (withdraw) when empty (full) than full (empty). Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing. To be economic meaningful, we also assume that $\lambda(q)$ and $\mu(q)$ are bounded.\\
 
 The objective is to maximize discounted infinite-horizon discounted cash flows. Taking a discount factor $\beta \in (0,1)$, 
 \begin{equation}\label{V(x,q)}
@@ -154,7 +164,7 @@ The optimal strategy is as following
 \end{itemize}
 
 \section{Constant Transaction Costs}
-Let the constant buying (selling) costs be $\lambda$ ($\mu$). Since the cost (profit) of buying (selling) one unit at the same price level is the same, the optimal strategy should be bang-bang. Introduce the following two functions of log price $x$,
+Let the constant buying (selling) costs be $\lambda$ ($\mu$). Since the cost (profit) of buying (selling) one unit at the same price level is the same, the optimal strategy should still be bang-bang. Introduce the following two functions of log price $x$,
 \begin{equation*}
 \begin{split}
   V(x) &= \sup_{\tau \in \mathcal{T}} \mathbb{E}_x\{e^{-r\tau}(e^{X_\tau} - \mu)\}\\
@@ -162,7 +172,7 @@ Let the constant buying (selling) costs be $\lambda$ ($\mu$). Since the cost (pr
 \end{split}
 \end{equation*}
 
-$V(x)$ is the maximum value that can be gained from 1 unit commodity when log price is $x$. $J(x)$ is the maximal profit of buying and then selling 1 unit commodity when log price is $x$. Tim Leung et al.(2014) use concavity to prove that the optimal policy for $V(x)$ is an upper threshold policy. In other words, if log price exceeds the threshold $d^*$, then sell. Using similar idea, they also prove the optimal policy for $J(x)$ is an upper-lower threshold policy. That is to say, one will buy if and only if log price is within two thresholds, namely [$a^*$,$b^*$]. Based on the existence and conditions of $a^*$ and $b^*$, there are two cases.
+$V(x)$ is the maximum value that can be gained from selling 1 unit commodity when log price is $x$. $J(x)$ is the maximal profit of buying and then selling 1 unit commodity when log price is $x$. Tim Leung et al.(2014) use concavity to prove that the optimal policy for $V(x)$ is an upper threshold policy. In other words, if log price exceeds the threshold $d^*$, then sell. Using similar idea, they also prove the optimal policy for $J(x)$ is an upper-lower threshold policy. That is to say, one will buy if and only if log price is within two thresholds, namely [$a^*$,$b^*$]. Based on the existence and conditions of $a^*$ and $b^*$, there are two cases.
 \begin{enumerate}
     \item $J(x) = 0$. In this case, it is not optimal enter the market at all.
     \item $-\infty < a^* < b^* < d^*< \infty$. This means that commodity is bought when log price is within $[a^*,b^*]$ and will be sold when log price achieves $d^*$.
@@ -214,45 +224,36 @@ Here the solution to the fixed boundary problem is denoted as $V^{n}(x,q)$.
 \subsection{Algorithm}
 \begin{enumerate}
   \item Find a large enough number $M_0$ such that the optimal selling region contains the inititial selling region $S^0 =  \{(x,q)|x\geq M_0,~Q_{\min} <q \leq Q_{\max}\}$. Set holding region $H^0 = (S^0)^c$ and buying region $B^0 = \emptyset$.   
-  \item  Keep doing the following steps until either convergence or buying region becomes non-empty, namely $B^n \neq \emptyset$. Here $n$ starts with 0. 
+  \item  Keep doing the following steps until convergence.
   \begin{enumerate}
   \item Calculate the value function $V^{n}(x,q)$.
-  \item If the maximal buying profit is positive, $max_{x}\mathcal{B}V^{n}(x,q)>0$, then set the buying region $B^{n+1} = \{(x,q)|x = x_p^{n+1}(q)\}$, where 
-    \begin{equation*}
-      x_p^{n+1}(q) =  \arg \max_{x} \mathcal{B}V^{n}(x,q).
-    \end{equation*}
-  
-  \item Else, set the selling region $S^{n+1} = \{(x,q)|x\geq x_s^{n+1}(q)\}$, where 
-    \begin{equation*}
+  \item If the maximal selling profit is positive, $max_{x}\mathcal{S}V^{n}(x,q)>0$, then set the selling region $S^{n+1} = \{(x,q)|x\geq x_s^{n+1}(q)\}$ where 
+	\begin{equation*}
       x_s^{n+1}(q) = \arg\max_{x} \mathcal{S}V^{n}(x,q) 
     \end{equation*}
-  
-  \item Set the holding region as $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
-  \item $n = n + 1$.
-  \end{enumerate}
-\item If previous loop ends when $n = N$ because of buying region becoming non-empty, then keep doing the following  until convergence. Here $n$ starts with $N$.
+  \item If the maximal buying profit is positive, $max_{x}\mathcal{B}V^{n}(x,q)>0$, then set the buying region $B^{n+1} = \{(x,q)|x_l^{n+1}(q)\leq x\leq x_u^{n+1}(q)\}$. There are two possibilities.
   \begin{enumerate}
-  \item Calculate the value function $V^{n}(x,q)$.
-  \item If $n$ is odd, then the buying region remains the same, $B^{n+1} = B^{n}$, and the selling region is updated to $S^{n+1} = \{(x,q)|x\geq x_s^{n+1}(q)\}$.
-
-
-  \item If $n$ is even, then selling region remains the same, $S^{n+1} = S^{n}$, and buying region is updated to $B^{n+1} = \{(x,q)|x_l^{n+1}(q)\leq x\leq x_u^{n+1}(q)\}$, where
-    \begin{equation*}
+  \item Buying region is empty at iteration $n$.
+  	\begin{equation*}
+      x_l^{n+1}(q) = x_u^{n+1}(q) =\arg \max_{x} \mathcal{B}V^{n}(x,q).
+    \end{equation*}
+  
+  \item Buying region is not empty at iteration $n$. 
+	\begin{equation*}
     \begin{split}
         x_u^{n+1}(q) &= \arg\max_{x\geq x_u^{n}(q)} \mathcal{B}V^{n+1}(x,q),\\
         x_l^{n+1}(q) &= \arg\max_{x\leq x_l^{n}(q)} \mathcal{B}V^{n+1}(x,q).
     \end{split}
-    \end{equation*}  
-  Here $x_u^{N}(q) = x_l^{N}(q) = x_p^{N}(q)$.
+    \end{equation*} 
+  \end{enumerate}
+
   
   \item Set the holding region as $H^{n+1} = (S^{n+1} \cup B^{n+1})^c$.
-  \item $n = n + 1$. 
-   \end{enumerate}
+  \item $n = n + 1$.
+  \end{enumerate}
 \end{enumerate}
 
-Notice that each time only one of selling and buying boundaries moves and both selling region and buying region are increasing. Here and after, the movement of a boundary has the same meaning as the change of the related region. These two facts are critical in the proof of the monotonicity of the value functions $V^{n}$.\\
-
-In order to show this algorithm works, three things need to be proved.
+In order to show this algorithm works, four things need to be proved.
 \begin{enumerate}
   \item The existence of $M_0$.
   \item $V^{n}$ is monotone increasing.
@@ -326,59 +327,6 @@ Because we use the discretization method to solve the HJB equation (\ref{HJB}), 
 \end{equation*}
 
 \subsection{$V^{n}$ is monotone increasing}
-We need two lemmas to prove the monotonicity.
-
-\begin{Lemma}\label{LemmaMaxPr} %maximum principle
-If $\LL f = 0$, function $f$ can't achieve the positive maximal or negative minimum at an interior point.
-\end{Lemma}
-
-\begin{proof}
-Assume that there exists $x_M$ which is the positive maximal interior point. Then $f(x_M) > 0$, $f'(x_M) = 0$ and $f''(x_M) \leq 0$. On the other hand, $\LL f(x_M) = 0$. By the definition of $\LL$,
-
-\begin{equation}
-\begin{split}
-  &\frac{1}{2}\sigma^2 f''(x_M) + \kappa(\alpha - x_M) f'(x_M) - \beta f(x_M) = 0 \\
-  \Rightarrow & 0<\beta f(x_M) = \frac{1}{2}\sigma^2 f''(x_M) + \kappa(\alpha - x_M) f' \leq 0
-\end{split}
-\end{equation}
-
-Contradiction! We can use the similar argument to prove the negative minimum case.\end{proof}
-
-\begin{Lemma}\label{LemmaMutEx}%mutually exclusive optimal buying and selling policies
-At the same log price level $\x$, there won't exist two storage levels $q_1$ and $q_2$ such that selling is optimal at $(\x,q_1)$ while buying is optimal at $(\x,q_2)$.
-\end{Lemma}
-
-\begin{proof}
-If not, without losing any generality, assume that $(\x,q_1)$ is on the buying boundary and $(\x,q_2)$ is on the selling boundary. Define function $f(x)$ as the buying profit function, $\mathcal{B}V(x,q_1)$. Because $(\x,q_1)$ is on the buying boundary, $f(\x) = 0$. By HJB equation (\ref{HJB}), $f(x)$ achieves its maximum at point $\x$. If function $f$ is differentiable, then $f'(\x) = 0$ because $\x$ is the maximal point. We need to consider two cases.
-\begin{enumerate}
-  \item Holding region is above $(\x,q_1)$.
-  \item Holding region is below $(\x,q_1)$.
-\end{enumerate}
-Because function $f(x)$ may not be second order continuous, we need to consider the left and right derivative separately. From maximal property and $f'(\x) = 0$, we have $f''(\x+) \leq 0,~f''(\x-) = 0$ for the first case and $f''(\x+)= 0,~f''(\x-) \leq 0$ for the second. In the first case,
-\begin{equation*}
-\LL f(\x+) = \frac{1}{2} \sigma^2 f''(\x+) + k(\alpha- \x)f'(\x) -\beta f(\x) = \frac{1}{2} \sigma^2 f''(\x+) \leq 0.
-\end{equation*}
-On the other hand, 
-\begin{equation*}
-\begin{split}
-\LL f(\x+) = \LL(\mathcal{B}V(\x+,q_1))&= \LL V_q(\x+,q_1) - \LL(e^x + \lambda(q_1))|_{x=\x} \\
-&= \left(\LL V(\x+,q_1)\right)_q- \LL(e^x + \lambda(q_1))|_{x=\x}\\
-&= - \LL(e^x + \lambda(q_1))|_{x=\x}.\\
-\end{split}
-\end{equation*}
-As a result,
-\begin{equation}\label{geqbuy}
-\frac{1}{2} \sigma^2 e^{\x} + k(\alpha -\x) e^{\x} - \beta (e^{\x} +\lambda(q_1))) = \LL(e^x + \lambda(q_1))|_{x=\x} \geq 0.
-\end{equation}
-In the second case, we can achieve the same equality using similar derivation above.\\
-
-Define $g(x) = \mathcal{S}V(x,q_2)$. We can replicate the same analysis above to have
-\begin{equation}\label{leqsell}
-\frac{1}{2} \sigma^2 e^{\x} + k(\alpha -\x) e^{\x} - \beta (e^{\x} -\mu(q_2))) \leq 0.
-\end{equation}
-Because $\lambda$ and $\mu$ are positive, (\ref{geqbuy}) and (\ref{leqsell}) can't hold simultaneously which is a contradiction. 
-
-\end{proof}
 
 \begin{Theorem}\label{incrs}
 The value function $V^{n+1}$ with the region triplet $(H^{n+1},S^{n+1},B^{n+1})$ is larger than the value function $V^{n}$ with the regions triplet $(H^n,S^n,B^n)$.
@@ -407,7 +355,8 @@ V^{n+1}_q(x,q) - e^x - \lambda(q) = 0 & (x,q) \in B^{n}\\
 V^{n+1}_q(x,q) - e^x - \lambda(q) = 0 & (x,q) \in B^{n+1}/B^{n}.\\
 \end{array}
 \end{equation}
-Here we also use the monotonicity of $H^n,~S^n$ and $B^n$, that is to say, $H^{n} \supset H^{n+1},~S^{n} \subset S^{n+1}$ and $B^{n} \subset B^{n+1}$. Introduce $\Delta V^{n+1}(x,q) = V^{n+1}(x,q) - V^{n}(x,q)$. From (\ref{Vn}) and (\ref{Vn+1}), we can deduce   
+
+The algorithm guarantees the monotonicity of $H^n,~S^n$ and $B^n$, that is to say, $H^{n} \supset H^{n+1},~S^{n} \subset S^{n+1}$ and $B^{n} \subset B^{n+1}$. Introduce $\Delta V^{n+1}(x,q) = V^{n+1}(x,q) - V^{n}(x,q)$. From (\ref{Vn}) and (\ref{Vn+1}), we can deduce   
 \begin{equation}\label{dV}
 \begin{split}
 \LL \Delta V^{n+1}(x,q) &= 0 \quad (x,q) \in H^{n+1}\\
@@ -417,87 +366,8 @@ Here we also use the monotonicity of $H^n,~S^n$ and $B^n$, that is to say, $H^{n
 \Delta V_q^{n+1}(x,q) &< 0 \quad (x,q) \in B^{n+1}/B^{n}.\\
 \end{split}  
 \end{equation}
-Because only one of selling and buying region changes, we can further divide it into two cases.
-\begin{enumerate}
-  \item Only selling boundary moves, namely 
-\begin{equation}\label{dVS}
-\begin{split}
-\LL \Delta V^{n+1}(x,q) &= 0 \quad (x,q) \in H^{n+1}\\
-\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in S^{n}\\
-\Delta V_q^{n+1}(x,q) &> 0 \quad (x,q) \in S^{n+1}/S^{n}\\
-\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in B^{n+1} = B^{n}\\
-\end{split}  
-\end{equation}
- \item Only buying boundary moves, namely
-\begin{equation}\label{dVB}
-\begin{split}
-\LL \Delta V^{n+1}(x,q) &= 0 \quad (x,q) \in H^{n+1}\\
-\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in S^{n+1} = S^{n}\\
-\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in B^{n}\\
-\Delta V_q^{n+1}(x,q) &< 0 \quad (x,q) \in B^{n+1}/B^{n}.\\
-\end{split}  
-\end{equation}
-In the first case, take derivative with respect to $q$ in the first equality of equation (\ref{dVS}) to have 
-\begin{equation}\label{dVqS}
-\begin{split}
-\LL \Delta V^{n+1}_q(x,q) &= 0 \quad (x,q) \in H^{n+1}\\
-\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in S^{n}\\
-\Delta V_q^{n+1}(x,q) &> 0 \quad (x,q) \in S^{n+1}/S^{n}\\
-\Delta V_q^{n+1}(x,q) &= 0 \quad (x,q) \in B^{n+1} = B^{n}.\\
-\end{split}  
-\end{equation}
-By Lemma \ref{LemmaMaxPr}, $\Delta V^{n+1}_q \geq 0$ holds for all points. Right now focus on the set $\{(x,Q_{\min})|x \in \mathbb{R}\}$. Only holding and buying are possible policy on this set because there is nothing to sell.
-\begin{enumerate}
-  \item Hold at $(x,Q_{\min})$. Directly from the first equality of (\ref{dVS}), we have
-  \begin{equation*}
-  \LL \Delta V^{n+1}(x,Q_{\min}) = 0
-  \end{equation*}
-  \item Buy at $(x,Q_{\min})$. By Lemma \ref{LemmaMutEx}, at this log price level $x$, there won't be a selling policy because we already buy at $(x,Q_{\min})$. Especially, we will hold at $(x,Q_{\max})$ because there is no place to inject. Therefore, $\LL \Delta V^{n+1}(x,Q_{\max}) = 0$. Meanwhile, by (\ref{dVqS}),
-\begin{equation*}
-    \LL \Delta V^{n+1}_q(x,q) = 0 \quad \forall (x,q) \in H^{n+1}\cup B^{n+1}.
-\end{equation*}
-Since buying and holding are the only policies at $x$, together with above equality,
-\begin{equation*}
-  \int_{Q_{\min}}^{Q_{\max}}\LL \Delta V^{n+1}_q(x,q)dq = 0.
-\end{equation*}
-Thus,
-  \begin{equation*}
-  \begin{split}
-  \LL \Delta V^{n+1}(x,Q_{\min}) &= \LL \left(\Delta V^{n+1}(x,Q_{\max}) - \int_{Q_{\min}}^{Q_{\max}}\Delta V^{n+1}_q(x,q)dq\right)\\
-  &= \LL \Delta V^{n+1}(x,Q_{\max}) - \int_{Q_{\min}}^{Q_{\max}}\LL \Delta V^{n+1}_q(x,q)dq = 0.\\
-  \end{split}
-  \end{equation*}
-\end{enumerate}
-We have proved that 
-\begin{equation*}
-  \LL \Delta V^{n+1}(x,Q_{\min}) = 0 \quad \forall x \in \mathbb{R}.
-\end{equation*}
-This implies $ \Delta V^{n+1}(x,Q_{\min}) = 0$ because $0$ is the only finite function that satisfy the above equation. Therefore,
-\begin{equation*}
-\begin{split}
-  \Delta V^{n+1}(x,q) &= \Delta V^{n+1}(x,Q_{\min}) + \int_{Q_{\min}}^q \Delta V^{n+1}_q(x,q)dq \\
-  & = \int_{Q_{\min}}^q \Delta V^{n+1}_q(x,q)dq \geq 0
-\end{split}
-\end{equation*}
-The last inequality holds because of $\Delta V^{n+1}_q \geq 0$.\\
-In the second case, we can use very similar method to have $\Delta V^{n+1}_q \leq 0$ and $\Delta V^{n+1}(x,Q_{\max}) = 0$. Then
-\begin{equation*}
-\begin{split}
-  \Delta V^{n+1}(x,q) &= \Delta V^{n+1}(x,Q_{\max}) - \int_{q}^{Q_{\max}} \Delta V^{n+1}_q(x,q)dq \\
-  & = - \int_{Q_{\min}}^q \Delta V^{n+1}_q(x,q)dq \geq 0
-\end{split}
-\end{equation*}
-\end{enumerate}
 
-%There are four kinds of boundaries movement and we will prove the monotonicity in each case.\\
-%
-%\begin{enumerate}
-%  \item $B^{n+1}$ moves from $B^{n} = \emptyset$ and $S^{n+1}$ remains.
-%  %TODO: introduce a picture about how the boundary moves.
-%  \item When $B^{n+1} = B^{n} = \emptyset$, $S^{n+1}$ moves from $S^{n}$.
-%  \item When $B^{n} \neq \emptyset$, $S^{n+1}$ moves from $S^{n}$ and $B^{n+1}$ remains.
-%  \item When $B^{n} \neq \emptyset$, $B^{n+1}$ moves from $B^{n}$ and $S^{n+1}$ remains. 
-%\end{enumerate}
+By Feynman-Kac formula, $\Delta V^{n+1}$ is the value function with regions triplet $(H^n,S^n,B^n)$ and positive selling profit and negative buying cost \footnote{It means that one can increase the volume in the storage and make a profit at the same time.}. As a result, for every regions triplet, the value function is positive, namely $\Delta V^{n+1} > 0$.
 
 \end{proof}
 

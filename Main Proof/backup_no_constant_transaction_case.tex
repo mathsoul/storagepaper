@@ -129,234 +129,96 @@ The decisions are when and how much shall be injected and withdrawn from the fac
 %  dQ_t = dL_t - dU_t.
 %\end{equation}
 
-Both injection and withdrawal generate costs. As a result, injection and withdrawal won't take place at the same time. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ unit. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{Q_{t-}}^{Q_{t}} \lambda(q) dq$ and $\int_{Q_{t}}^{Q_{t-}} \mu(q) dq$ respectfully.
+Both injection and withdrawal generate costs. As a result, injection and withdrawal won't take place at the same time. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ unit. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{Q_{t-}}^{Q_{t}} \lambda(q) dq$ and $\int_{Q_{t}}^{Q_{t-}} \mu(q) dq$ respectfully.  It is often easier to inject (withdraw) when empty (full) than full (empty). Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing. To be economic meaningful, we also assume that $\lambda(q)$ and $\mu(q)$ are bounded.\\
 
-%todo: This part may not be necessary.
-It is often easier to inject (withdraw) when empty (full) than full (empty). Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing. To be economic meaningful, we also assume that $\lambda(q)$ and $\mu(q)$ are bounded.\\
-
-We define the discounted infinite-horizon cash flows w.r.t. an admissible control policy $(L_t,U_t)$ as
-\begin{equation}\label{Eq:V_LU}
-\begin{split}
-  V_{(L_t,U_t)}(x,q) = \mathbb{E}_{x,q} \left(\int_{0}^{\infty} e^{-\beta t}(e^{X_t} - M_t)dU_t - \int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \Lambda_t)dL_t\right).
-\end{split}
+The objective is to maximize discounted infinite-horizon discounted cash flows. Taking a discount factor $\beta \in (0,1)$, 
+\begin{equation}\label{eq:V(x,q)}
+  V(x,q) = \max_{(L,U) \in \mathcal{U}} \mathbb{E}_{x,q} \left(\int_{0}^{\infty} e^{-\beta t}(e^{X_t} - M_t)dU_t - \int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \Lambda_t)dL_t\right) 
 \end{equation}
-Here $X_0 =x$, $Q_0 = q$, and discount factor $\beta \in (0,1)$. We use $\Lambda_t$ and $M_t$ to represent the injection and withdrawal cost at time $t$. By the definition of $\lambda$ and $\mu$, we have the following relations.
+
+where $X_0 =x$ and $Q_0 = q$. We use $\Lambda_t$ and $M_t$ to represent the injection and withdrawal cost at time $t$. By the definition of $\lambda$ and $\mu$, we have the following relations.
 \begin{equation}
   \Lambda_t = \left\{
   \begin{array}{lc}
-  \lambda(Q_t) & \mbox{if} ~ \Delta L_t = 0\\
-  \frac{1}{\Delta L_t}\int_{Q_{t-}}^{Q_{t-} + \Delta L_t} \lambda(q) dq & \mbox{otherwise.}
+  \lambda(Q_t) & \mbox{if} ~ L_t = L_{t-}\\
+  \frac{1}{Q_t - Q_{t-}}\int_{Q_{t-}}^{Q_{t}} \lambda(q) dq & \mbox{otherwise.}
   \end{array}
   \right.
 \end{equation}
 \begin{equation}
   M_t = \left\{
   \begin{array}{lc}
-  \mu(Q_t) & \mbox{if} ~ \Delta U_t = 0\\
-  \frac{1}{\Delta U_t}\int_{Q_{t-}-\Delta U_t}^{Q_{t-}} \mu(q) dq & \mbox{otherwise.}
+  \mu(Q_t) & \mbox{if} ~ U_t = U_{t-}\\
+  \frac{1}{Q_{t-} - Q_{t}}\int_{Q_{t}}^{Q_{t-}} \mu(q) dq & \mbox{otherwise.}
   \end{array}
   \right.
 \end{equation}
+Because $e^{-\beta t}(e^{X_t} - M_t)$ ($e^{-\beta t}(e^{X_t} + \Lambda_t)$)
 
-The objective is to choose the best $(L_t,U_t)$ that maximize the discounted infinite-horizon cash flows, 
-\begin{equation}\label{Eq:V(x,q)}
-  V(x,q) = \max_{(L,U) \in \mathcal{U}} V_{(L_t,Q_t)}(x,q).
+
+In other words, the maximum value that a facility manager can obtain from a storage facility when the current spot log price is $x$ and the amount is $q$ is $V(x,q)$.
+
+\section{No Transaction Costs}
+No transaction cost means that $\lambda$ (buying cost) $\equiv 0$ and $\mu$ (selling cost) $\equiv 0$. Since the profit (cost) of selling (buying) one unit at the same price level is the same, the optimal strategy should be bang-bang. Whenever the drift of $X_t$ exceeds interest rate, we should buy. Vice versa. Let this critical point be $X^*$, and then
+\begin{equation*}
+  \kappa (\alpha - X^*) = r \Rightarrow X^* = \alpha - \frac{r}{\kappa}
+\end{equation*}
+
+The optimal strategy is as following
+\begin{itemize}
+  \item If $X_t > X^*$, sell to empty.
+  \item If $X_t \leq X^*$, buy to full.
+\end{itemize}
+
+\section{Constant Transaction Costs}
+Let the constant buying (selling) costs be $\lambda$ ($\mu$). Since the cost (profit) of buying (selling) one unit at the same price level is the same, the optimal strategy should still be bang-bang. Introduce the following two functions of log price $x$,
+\begin{equation*}
+\begin{split}
+  V(x) &= \sup_{\tau \in \mathcal{T}} \mathbb{E}_x\{e^{-r\tau}(e^{X_\tau} - \mu)\}\\
+  J(x) &= \sup_{\nu \in \mathcal{T}} \mathbb{E}_x \{e^{-r\nu}(V(x^\nu) - e^{X_\nu} - \lambda) \}.
+\end{split}
+\end{equation*}
+
+$V(x)$ is the maximum value that can be gained from selling 1 unit commodity when log price is $x$. $J(x)$ is the maximal profit of buying and then selling 1 unit commodity when log price is $x$. Tim Leung et al.(2014) use concavity to prove that the optimal policy for $V(x)$ is an upper threshold policy. In other words, if log price exceeds the threshold $d^*$, then sell. Using similar idea, they also prove the optimal policy for $J(x)$ is an upper-lower threshold policy. That is to say, one will buy if and only if log price is within two thresholds, namely [$a^*$,$b^*$]. Based on the existence and conditions of $a^*$ and $b^*$, there are two cases.
+\begin{enumerate}
+    \item $J(x) = 0$. In this case, it is not optimal enter the market at all.
+    \item $-\infty < a^* < b^* < d^*< \infty$. This means that commodity is bought when log price is within $[a^*,b^*]$ and will be sold when log price achieves $d^*$.
+\end{enumerate}
+
+%TODO: add the summation of J(x) as the value of a storage facility.
+
+
+
+
+\section{Non-Constant Transaction Costs}
+The stochastic control problem with non-constant transaction costs can be transformed into a Hamilton Jacobi Bellman (HJB) equation via dynamic programming principle and Ito's formula. The HJB equation characterize the value function $V(x,q)$ (\ref{V(x,q)}).\\
+
+We will use $V_{x}$ and $V_{q}$ separately to denote the partial differential of $V$ with respect to $x$ and $q$. $V_{xx}$ represents $\frac{\partial^2 V}{(\partial x)^2}$. The value function $V(x,q)$ is expected to satisfy the HJB equation
+\begin{equation}\label{HJB}
+  \max \left[ \mathcal{L} V(x,q),\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0.
 \end{equation}
-
-In other words, the maximum value that a facility manager can obtain from a storage facility when the current spot log price is $x$ and the amount is $q$ is $V(x,q)$. We call $V(x,q)$ the (optimal) value function and $V_{(L_t,U_t)}(x,q)$ the value function w.r.t strategy $(L_t,U_t)$.
-
-\section{HJB equation, Verification Theorem, and the Choice of Search Space}
-\subsection{HJB equation}
-
-Bellman's principle of optimality together with It\^o's formula are commonly used to develop the necessary conditions of the optimal value function. Those necessary conditions are often called Hamilton-Jacobi-Bellman (HJB) equations.
-
-%todo: rewrite the following paragraph because it is copied from Haoling's paper.
-
-The intuition behind the Bellman's principle of optimality is that if at time zero we use an arbitrary control for an infinitesimal amount of time, and immediately switch to the optimal control, then the resulting value function cannot be larger than the optimal one. Suppose for now that an optimal control exists, and denote it by $(L^*_t,U^*_t)$. Then, if we choose not to act during $t\in [0,\Delta t)$, for some small $\Delta t>0$ and then switch to the optimal policy $(L^*_t,U^*_t)$ thereafter, we will have
-
-\begin{equation*}
-\begin{split}
-  V(x,q) &\geq \mathbb{E}_x\left(\int_{\Delta t}^{\infty} e^{-\beta t}(e^{X_t} - M_t)dU_t - \int_{\Delta t}^{\infty}e^{-\beta t}(e^{X_t} + \Lambda_t)dL_t\right) \\
-  &= \mathbb{E}_x\left(e^{-\beta \Delta t} V(X_{\Delta t},q)\right)
-\end{split}
-\end{equation*}
-
-Letting $\Delta t \rightarrow 0$, assuming sufficient smoothness of $V(\cdot,\cdot)$ and applying It\^{o}'s formula, we have
-\begin{equation*}
-\begin{split}
-  \frac{1}{2}\sigma^2V_{xx}(x,q) + k(\alpha-x)V_{x}(x,q) - \beta V(x,q) \leq 0
-\end{split}
-\end{equation*}
-Where $V_{x}$ ($V_{q}$) denotes the partial differential of $V$ with respect to $x$ ($q$), and $V_{xx}$ represents $\frac{\partial^2 V}{(\partial x)^2}$.
-
-
-Next, say we choose to instantaneously withdraw a small amount, $\Delta q$ and follow the optimal policy $(\hat{L}_t,\hat{U}_t)$ thereafter, we will have
-\begin{equation*}
-\begin{split}
-  V(x,q) \geq V(x,q-\Delta q) + \int_{q}^{q+\Delta q}(e^x - \mu(l))dl.
-\end{split}
-\end{equation*}
-Taking $\Delta q \rightarrow 0$, we have
-\begin{equation*}
-\begin{split}
-  - V_q(x,q) + (e^x - \mu(q)) \leq 0.
-\end{split}
-\end{equation*}
-Similarly, we can choose to instantaneously inject, and follow above arguments to have
-\begin{equation*}
-\begin{split}
-  V_q(x,q) - (e^x - \lambda(q)) \leq 0.
-\end{split}
-\end{equation*}
-
-Introduce the following three operators,
+where 
 \begin{equation}\label{Oper}
 \begin{split}
   \mathcal{L}V(x,q) &= \frac{1}{2}\sigma^2V_{xx}(x,q) + k(\alpha-x)V_{x}(x,q) - \beta V(x,q),\\
-  \mathcal{S}V(x,q) &= -V_q(x,q) + (e^x - \mu(q)),\\
-  \mathcal{B}V(x,q) &= V_q(x,q) - (e^x - \lambda(q)).
+  \mathcal{S}V(x,q) &= -V_q(x,q) + e^x - \mu(q),\\
+  \mathcal{B}V(x,q) &= V_q(x,q) - e^x - \lambda(q).
 \end{split}
-\end{equation}
-
-
-Intuitively one of the three actions (holding, withdrawal and injection) should be optimal, thus the value function $V(x,q)$ is expected to satisfy the HJB equation
-\begin{equation}\label{HJB}
-  \max \left[ \mathcal{L} V(x,q),\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0.
 \end{equation}
 
 
 Because the three terms in equation (\ref{HJB}) are the profits utilizing holding, selling, and buying policy respectively,  they are called holding, selling, and buying profit.\\
 
-In the next section, we will prove that HJB equation is sufficient as long as certain conditions are satisfied.
-
-\subsection{Verification Theorem}
-
-\begin{Theorem}
-	Suppose $f(x,q) \in C^{2,1}(\mathbb{R} \times \mathbb{R})$ and both $f$ and $f_x$ are bounded. If $f$ satisfies 
-	\begin{equation}\label{Eq:3max<=0}
-	\begin{split}
-		\max\left(\mathcal{L}f,\mathcal{B}f,\mathcal{S}f\right)(x,q) = 0,\quad (x,q)\in\mathbb{R}^2	,
-	\end{split}
-	\end{equation}
-	we have
-	\begin{equation*}
-	\begin{split}
-		f(x,q) = V(x,q),
-	\end{split}
-	\end{equation*}
-	where $V(x,q)$ is defined in (\ref{Eq:V(x,q)}).
-\end{Theorem}
-
-\begin{proof}
-Because of (\ref{Eq:QLU}) and the monotonicity of processes $L_t$ and $U_t$, $Q_t$ is of finite variation. Combined with the assumption that $f \in C^{2,1}(\mathbb{R}\times \mathbb{R})$, we are able to use Ito's formula from (Protter 2005) to have
-\begin{equation*}
-\begin{split}
-	e^{-\beta t} f(X_t,Q_t) - f(x,q) &= \int_{0}^t e^{-\beta s} \mathcal{L}f(X_s,Q_{s-})ds + \int_{0}^t e^{-\beta s} f_x(X_s,Q_{s-})dW_s \\
-	&+ \int_{0}^{t} e^{-\beta s} f_q(X_s,Q_{s-}) dQ_s^c + \sum_{0\leq s\leq t}\left(e^{-\beta s} f(X_s,Q_s) - e^{-\beta s} f(X_s,Q_{s-})\right),  
-\end{split}
-\end{equation*}
-where $X_0 = x$, $Q_{0-} = q$ and $Q_{\cdot}^c$ is the continuous part of $Q_{\cdot}$. This equation is valid for arbitrary $Q_t$ that satisfies (\ref{Eq:QLU}). Because both $f$ and $f_x$ are bounded, we can take expectation to both sides and then take $t \rightarrow \infty$,
-\begin{equation*}
-\begin{split}
-  f(x,q) = &- \mathbb{E}\int_{0}^{\infty}e^{-\beta t}\mathcal{L}f(X_t,Q_{t-}) dt - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dQ_t^c \\
-  & - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} f(X_t,Q_t) - e^{-\beta s} f(X_t,Q_{t-})\right).
-\end{split}
-\end{equation*}
-Plug (\ref{Eq:QLU}) into,
-\begin{equation}\label{Eq:Ito}
-\begin{split}
-  f(x,q)  &=  - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}\mathcal{L}f(X_t,Q_{t-}) dt \\
-  & \quad - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dL_t^c + \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dU_t^c \\
-  & \quad - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} f(X_t,Q_{t-}+\Delta L_t) - e^{-\beta t} f(X_t,Q_{t-})\right) \\
-  & \quad - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} f(X_t,Q_{t-}-\Delta U_t) - e^{-\beta t} f(X_t,Q_{t-})\right)\\
-  & = - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}\mathcal{L}f(X_t,Q_{t-}) dt \\
-  & \quad - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dL_t^c + \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dU_t^c \\
-  & \quad - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} \int_{Q_{t-}}^{Q_{t-}+\Delta L_t} f_q(X_t,q) dq\right) \\
-  & \quad + \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} \int_{Q_{t-}-\Delta U_t}^{Q_{t-}}f_q(X_t,q)dq \right).\\
-\end{split}
-\end{equation}
-From (\ref{Eq:3max<=0}), we have $\mathcal{L}f(x,q) \leq 0$ and $e^x -\mu(q)\leq  f_q(x,q)\leq e^x + \lambda(q)$ hold for all $(x,q) \in \mathbb{R}^2$. Substitute them into (\ref{Eq:Ito}) to have
-\begin{equation}\label{Eq:f>=V}
-\begin{split}
-  f(x,q) & \geq - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \lambda(Q_{t-}))dL_t^c + \mathbb{E}\int_{0}^{\infty}e^{-\beta t}(e^{X_t} -\mu(Q_{t-}))dU_t^c \\
-  & \quad - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} \int_{Q_{t-}}^{Q_{t-}+\Delta L_t}(e^x + \lambda(q))  dq\right) \\
-  & \quad + \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} \int_{Q_{t-}-\Delta U_t}^{Q_{t-}}(e^x - \mu(q))dq \right)\\
-  & = \mathbb{E}_{x,q} \left(\int_{0}^{\infty} e^{-\beta t}(e^{X_t} - M_t)dU_t - \int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \Lambda_t)dL_t\right).
-\end{split}
-\end{equation}
-Because this inequality is true for all admissible $(L_t,U_t)$, by definition of $V(x,q)$, namely (\ref{Eq:V(x,q)}), we have 
-\begin{equation*}
-\begin{split}
-  f(x,q) \geq V(x,q).
-\end{split}
-\end{equation*}
 The region where the holding profit is the highest is called the optimal holding region and denoted as $H^*$. Similarly, the optimal selling (buying) region is defined and denoted as $S^*$ ($B^*$). Mathematically speaking, 
 \begin{equation*}
 \begin{split}
   \mathcal{L} V(x,q) &= \max \left[ \mathcal{L} V(x,q),\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0 \quad (x,q) \in H^*\\
   \mathcal{S}V(x,q) &=\max \left[ \mathcal{L} V(x,q),,\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0 \quad (x,q) \in S^*\\
-  \mathcal{B}V(x,q) &=\max \left[ \mathcal{L} V(x,q),,\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0 \quad (x,q) \in B^*.
+  \mathcal{B}V(x,q) &=\max \left[ \mathcal{L} V(x,q),,\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0 \quad (x,q) \in B^* 
 \end{split}
 \end{equation*}
 
-Notice that the equality holds in (\ref{Eq:f>=V}) if 
-\begin{equation*}
-\begin{split}
-  &\mathcal{L}f(X_t,Q_{t-}) = 0 \quad \forall t>0\\
-  &\mathcal{S}f(X_t,Q_{t-}) = 0 \quad \mbox{if} ~ dU_t^c \neq 0~ \mbox{or}~ \Delta U_t \neq 0\\
-  &\mathcal{B}f(X_t,Q_{t-}) = 0 \quad \mbox{if} ~ dL_t^c \neq 0~ \mbox{or}~\Delta L_t \neq 0\\  
-\end{split}
-\end{equation*}
-Such admissible control $(L^*_t,U^*_t)$ can be found if we follow the rules that hold in $H^*$, sell in $S^*$, and buy in $B^*$. Thus, by definition of V(x,q),
-\begin{equation*}
-\begin{split}
-  f(x,q) = V_{(L^*,U^*)}(x,q) \leq V(x,q).
-\end{split}
-\end{equation*}
-
-\end{proof}
-
-It is worth notice that the optimal policy $(L^*_t,U^*_t)$ is totally determined by the region triplet $(H^*,S^*,B^*)$. As a result, instead of searching $(L^*_t,U^*_t)$, we choose to search the region triplet $(H^*,S^*,B^*)$. This narrows down the policy space that we will search.
-
-\subsection{Search Space}
-If $\mathbb{R}^2$ is divided into holding region, H, selling region, S, and buying region, B, we can derive a related strategy $(L_t,U_t)$ following the rules that sell in S, buy in B, and hold in H. We call $(H,S,B)$ a region triplet and we also use it to represent related strategy.
-
-\begin{Theorem}
-Let $v$ be the solution to
-\begin{equation*}
-\begin{split}
-  & \mathcal{L} v = 0 \quad (x,q) \in H\\
-  & \mathcal{S} v = 0 \quad (x,q) \in S\\
-  & \mathcal{B} v = 0 \quad (x,q) \in B,
-\end{split}
-\end{equation*}
-where $(H,S,B)$ is a region triplet. If $v \in C^{2,1}(\mathbb{R}\times\mathbb{R}/\partial H)$ and both $v$ and $v_x$ are bounded, $v$ is the value function w.r.t $(H,S,B)$.
-\end{Theorem}
-
-\begin{proof}
-Let $(L_t,U_t)$ be the respective strategy w.r.t $(H,S,B)$ and we have
-\begin{equation*}
-\begin{split}
-	&(X_t,Q_{t-}) \in H \quad \forall t >0\\
-	&(X_t,Q_{t-}) \in \partial B \Leftrightarrow dL_t^c \neq 0\\
-	&(X_t,Q_{t-}) \in \partial S \Leftrightarrow dU_t^c \neq 0\\
-	&(X_t,Q_{t-}) \in B^o \Leftrightarrow \Delta L_t \neq 0\\
-	&(X_t,Q_{t-}) \in S^o \Leftrightarrow \Delta U_t \neq 0\\
-\end{split}
-\end{equation*}
-
-By (\ref{Eq:Ito}), we have
-\begin{equation*}
-\begin{split}
-  v(x,q) & = - \mathbb{E}\int_0^{\infty} e^{-\beta t}(e^x + \lambda(q)) dL_t^c +  \mathbb{E}\int_0^{\infty} e^{-\beta t}(e^x - \mu(q)) dU_t^c\\
-  & \quad - \mathbb{E} \sum_{0\leq t<\infty} e^{-\beta t}\int_{Q_{t-}}^{Q_{t-} + \Delta L_t}(e^x + \lambda(q))dq +\mathbb{E} \sum_{0\leq t<\infty} e^{-\beta t}\int_{Q_{t-}}^{Q_{t-} + \Delta L_t}(e^x + \lambda(q))dq\\
-  & = \mathbb{E}\int_0^{\infty}e^{-\beta t}(e^x - M(q))dU_t - \mathbb{E} \int_0^{\infty}e^{-\beta t}(e^x +\Lambda(q))dL_t = V_{(L_t,U_t)}(x,q)
-\end{split}
-\end{equation*}
-
-
-\end{proof}
-HJB equation is a free-boundary problem which is hard to solve. Instead of solving it directly, we want to have a sequence of region triplets, $(H^{n},S^{n},B^{n})$, to approach the optimal regiones $(H^*,S^*,B^*)$. The fixed boundary problem $(H^{n},S^{n},B^{n})$ is defined as a system of equations which states that holding (selling, buying) profit is 0 in $H^{n}$ ($S^{n}, B^{n}$). Mathematically speaking, 
+We want to have a sequence of regions, $(H^{n},S^{n},B^{n})$, to approach the optimal regiones $(H^*,S^*,B^*)$. The fixed boundary problem $(H^{n},S^{n},B^{n})$ is defined as a system of equations which states that holding (selling, buying) profit is 0 in $H^{n}$ ($S^{n}, B^{n}$). Mathematically speaking, 
 \begin{equation}\label{Eq:Vn}
 \begin{array}{ll}
 \mathcal{L} V^{n}(x,q) = 0& (x,q) \in H^{n}\\
@@ -366,7 +228,7 @@ HJB equation is a free-boundary problem which is hard to solve. Instead of solvi
 \end{equation}
 Here the solution to the fixed boundary problem is denoted as $V^{n}(x,q)$.
 
-\section{Algorithm}
+\subsection{Algorithm}
 \begin{enumerate}
   \item Find a large enough number $M_0$ such that the optimal selling region contains the inititial selling region $S^0 =  \{(x,q)|x\geq M_0,~Q_{\min} <q \leq Q_{\max}\}$. Set holding region $H^0 = (S^0)^c$ and buying region $B^0 = \emptyset$.   
   \item  Keep doing the following steps until convergence.
@@ -570,8 +432,107 @@ On the other hand, $f(x)$ achieves the minimum at $x_u^{n+1}(q)$ and $x_l^{n+1}(
 \end{equation*}
 \end{proof}
 
-\section{$\epsilon$-Optimality}
+\section{HJB equation and verification theorem}
+\begin{Theorem}
+	Suppose $f(x,q) \in C^{2,1}(\mathbb{R} \times \mathbb{R})$ and both $f$ and $f_x$ are bounded. If $f$ satisfies 
+	\begin{equation}\label{Eq:3max<=0}
+	\begin{split}
+		\max\left(\mathcal{L}f,\mathcal{B}f,\mathcal{S}f\right)(x,q) \leq 0,\quad (x,q)\in\mathbb{R}^2	,
+	\end{split}
+	\end{equation}
+	we have
+	\begin{equation*}
+	\begin{split}
+		f(x,q) \geq V(x,q),
+	\end{split}
+	\end{equation*}
+	where $V(x,q)$ is defined in (\ref{eq:V(x,q)}).
+\end{Theorem}
 
+\begin{proof}
+Because of (\ref{Eq:QLU}) and the monotonicity of processes $L_t$ and $U_t$, $Q_t$ is of finite variation. Combined with the assumption that $f \in C^{2,1}(\mathbb{R}\times \mathbb{R})$, we are able to use Ito's formula from (Protter 2005) to have
+\begin{equation*}
+\begin{split}
+	e^{-\beta t} f(X_t,Q_t) - f(x,q) &= \int_{0}^t e^{-\beta s} \mathcal{L}f(X_s,Q_{s-})ds + \int_{0}^t e^{-\beta s} f_x(X_s,Q_{s-})dW_s \\
+	&+ \int_{0}^{t} e^{-\beta s} f_q(X_s,Q_{s-}) dQ_s^c + \sum_{0\leq s\leq t}\left(e^{-\beta s} f(X_s,Q_s) - e^{-\beta s} f(X_s,Q_{s-})\right),  
+\end{split}
+\end{equation*}
+where $X_0 = x$, $Q_{0-} = q$ and $Q_{\cdot}^c$ is the continuous part of $Q_{\cdot}$. This equation is valid for arbitrary $Q_t$ that satisfies (\ref{Eq:QLU}). Because both $f$ and $f_x$ are bounded, we can take expectation to both sides and then take $t \rightarrow \infty$,
+\begin{equation*}
+\begin{split}
+  f(x,q) = &- \mathbb{E}\int_{0}^{\infty}e^{-\beta t}\mathcal{L}f(X_t,Q_{t-}) dt - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dQ_t^c \\
+  & - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} f(X_t,Q_t) - e^{-\beta s} f(X_t,Q_{t-})\right).
+\end{split}
+\end{equation*}
+Plug (\ref{Eq:QLU}) into,
+\begin{equation}\label{Eq:Ito}
+\begin{split}
+  f(x,q)  &=  - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}\mathcal{L}f(X_t,Q_{t-}) dt \\
+  & \quad - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dL_t^c + \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dU_t^c \\
+  & \quad - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} f(X_t,Q_{t-}+\Delta L_t) - e^{-\beta t} f(X_t,Q_{t-})\right) \\
+  & \quad - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} f(X_t,Q_{t-}-\Delta U_t) - e^{-\beta t} f(X_t,Q_{t-})\right)\\
+  & = - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}\mathcal{L}f(X_t,Q_{t-}) dt \\
+  & \quad - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dL_t^c + \mathbb{E}\int_{0}^{\infty}e^{-\beta t}f_q(X_t,Q_{t-})dU_t^c \\
+  & \quad - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} \int_{Q_{t-}}^{Q_{t-}+\Delta L_t} f_q(X_t,q) dq\right) \\
+  & \quad + \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} \int_{Q_{t-}-\Delta U_t}^{Q_{t-}}f_q(X_t,q)dq \right).\\
+\end{split}
+\end{equation}
+From (\ref{Eq:3max<=0}), we have $\mathcal{L}f(x,q) \leq 0$ and $e^x -\mu(q)\leq  f_q(x,q)\leq e^x + \lambda(q)$ hold for all $(x,q) \in \mathbb{R}^2$. Substitute them into (\ref{Eq:Ito}) to have
+\begin{equation*}
+\begin{split}
+  f(x,q) & \geq - \mathbb{E}\int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \lambda(Q_{t-}))dL_t^c + \mathbb{E}\int_{0}^{\infty}e^{-\beta t}(e^{X_t} -\mu(Q_{t-}))dU_t^c \\
+  & \quad - \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} \int_{Q_{t-}}^{Q_{t-}+\Delta L_t}(e^x + \lambda(q))  dq\right) \\
+  & \quad + \mathbb{E} \sum_{0\leq t <\infty}\left(e^{-\beta t} \int_{Q_{t-}-\Delta U_t}^{Q_{t-}}(e^x - \mu(q))dq \right)\\
+  & = \mathbb{E}_{x,q} \left(\int_{0}^{\infty} e^{-\beta t}(e^{X_t} - M_t)dU_t - \int_{0}^{\infty}e^{-\beta t}(e^{X_t} + \Lambda_t)dL_t\right).
+\end{split}
+\end{equation*}
+Because this inequality is true for all admissible $(L_t,U_t)$, by definition of $V(x,q)$, namely (\ref{eq:V(x,q)}), we have 
+\begin{equation*}
+\begin{split}
+  f(x,q) \geq V(x,q).
+\end{split}
+\end{equation*}
+
+
+\end{proof}
+
+If $\mathbb{R}^2$ is divided into holding region, H, selling region, S, and buying region, B, we can derive a related strategy $(L_t,U_t)$ following the rules that sell in S, buy in B, and hold in H. We call $(H,S,B)$ a region triplet and we also use it to represent related strategy.
+
+\begin{Theorem}
+Let $v$ be the solution to
+\begin{equation*}
+\begin{split}
+  & \mathcal{L} v = 0 \quad (x,q) \in H\\
+  & \mathcal{S} v = 0 \quad (x,q) \in S\\
+  & \mathcal{B} v = 0 \quad (x,q) \in B,
+\end{split}
+\end{equation*}
+where $(H,S,B)$ is a region triplet. If $v \in C^{2,1}(\mathbb{R}\times\mathbb{R}/\partial H)$ and both $v$ and $v_x$ are bounded, $v$ is the value function w.r.t $(H,S,B)$.
+\end{Theorem}
+
+\begin{proof}
+Let $(L_t,U_t)$ be the respective strategy w.r.t $(H,S,B)$ and we have
+\begin{equation*}
+\begin{split}
+	&(X_t,Q_{t-}) \in H \quad \forall t >0\\
+	&(X_t,Q_{t-}) \in \partial B \Leftrightarrow dL_t^c \neq 0\\
+	&(X_t,Q_{t-}) \in \partial S \Leftrightarrow dU_t^c \neq 0\\
+	&(X_t,Q_{t-}) \in B^o \Leftrightarrow \Delta L_t \neq 0\\
+	&(X_t,Q_{t-}) \in S^o \Leftrightarrow \Delta U_t \neq 0\\
+\end{split}
+\end{equation*}
+
+By (\ref{Eq:Ito}), we have
+\begin{equation*}
+\begin{split}
+  v(x,q) & = - \mathbb{E}\int_0^{\infty} e^{-\beta t}(e^x + \lambda(q)) dL_t^c +  \mathbb{E}\int_0^{\infty} e^{-\beta t}(e^x - \mu(q)) dU_t^c\\
+  & \quad - \mathbb{E} \sum_{0\leq t<\infty} e^{-\beta t}\int_{Q_{t-}}^{Q_{t-} + \Delta L_t}(e^x + \lambda(q))dq +\mathbb{E} \sum_{0\leq t<\infty} e^{-\beta t}\int_{Q_{t-}}^{Q_{t-} + \Delta L_t}(e^x + \lambda(q))dq\\
+  & = \mathbb{E}\int_0^{\infty}e^{-\beta t}(e^x - M(q))dU_t - \mathbb{E} \int_0^{\infty}e^{-\beta t}(e^x +\Lambda(q))dL_t = V_{(L_t,U_t)}(x,q)
+\end{split}
+\end{equation*}
+
+
+\end{proof}
 
 \begin{Theorem}
 Suppose $f \in C^{2,1}(\mathbb{R} \times \mathbb{R})$ and both $f$ and $f_x$ are bounded. If $f$ satisfies that $\mathcal{L}f \leq \epsilon$, $\max(\mathcal{B}f,\mathcal{S}f) \leq 0$, then $f(x,q) \geq V(x,q) - \frac{\epsilon}{\beta}$

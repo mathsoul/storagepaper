@@ -1,0 +1,243 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+
+
+\documentclass[paper=a4, fontsize=15pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage{amssymb}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{float}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{listings}
+\usepackage{color}
+\usepackage{fancyhdr} % Custom headers and footers
+\usepackage{multicol}
+\usepackage{subcaption} %Insert multicolumns plots
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\usepackage{tikz} %the most complex and powerful tool to create graphic elements in LATEX
+\usetikzlibrary{matrix,arrows,fit}
+\tikzset{circarrow/.style={
+        *->,
+        shorten <=-2pt
+    }
+}
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Matlab,                 % the language of the code
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+ tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%    TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\PP}{\mathcal{P}}
+
+%\title{    
+%\normalfont \normalsize 
+%\textsc{UT Austin, Mccombs Business School} \\ [25pt] % Your university, school and/or department name(s)
+%\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+%\huge Homework 4 for Network Optimization\\ % The assignment title
+%\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+%}
+
+%\author{Long Zhao lz4786} % Your name
+
+%\date{\normalsize\today} % Today's date or a custom date
+
+%\graphicspath{{/Users/zhaolong/Google Drive/Network Optimization/Homework1}}
+
+\begin{document}
+
+%\maketitle % Print the title
+
+\section{HJB Equation}
+Denote the price process as $P(t)$; the log seasonal factor as $S(t)$; the log deseasonal price process as $X(t)$; the storage process as $Q(t)$ . In other words, 
+\begin{equation*}
+  P(t) = \exp(X(t) + S(t)).
+\end{equation*}
+What's more, we know that $X(t)$ follows an OU process as following
+\begin{equation}\label{Equation_dX(t)}
+  dX(t) = \kappa(\alpha - X(t))dt + \sigma dW_t,
+\end{equation}
+where $W_t$ is a Brownian motion.
+
+
+The value function, $V$, should be a function of the deseasonal price $x$, the seasonal factor $s$, and the storage level $q$. That is to say, $V(x,s,q)$ is the value function. In the holding region, $Q(t)$ remains. As a result, in the holding region, 
+\begin{equation}\label{Equation_general_dV}
+\begin{split}
+  de^{-\beta t}V(X_t,S_t,Q_t) = &e^{-\beta t}\bigg(V_xdX_t + \frac{1}{2}V_{xx}(dX_t)^2 + V_sdS_t + \frac{1}{2}V_{ss}(dS_t)^2\\ 
+  		+& V_{xs}dX_tdS_t - \beta V dt\bigg). 
+\end{split}
+\end{equation}
+
+If $S(t)$ is deterministic and differentiable, we can assume it satisfies
+\begin{equation*}
+  dS(t) = f(S(t))dt.
+\end{equation*}
+Equation (\ref{Equation_general_dV}) turns out to be
+\begin{equation*}
+  de^{-\beta t} V(X_t,S_t,Q_t) = e^{-\beta t}\bigg(V_xdX_t + \frac{1}{2}V_{xx}(dX_t)^2 + f(S(t))V_sdt - \beta V\bigg).
+\end{equation*}
+Plug equation (\ref{Equation_dX(t)}) into previous equaiton, 
+\begin{equation*}
+  de^{-\beta t} V(X_t,S_t,Q_t) = e^{-\beta t}\left(\kappa(\alpha-X(t))V_x + \frac{1}{2}\sigma^2V_{xx} + f(S(t))V_s - \beta V\right)dt + \sigma e^{-\beta t}V_x dW_t.
+\end{equation*}
+Define operator $\mathcal{L}$ as
+\begin{equation*}
+  \mathcal{L} V(x,s,q) = \frac{1}{2} \sigma^2 V_{xx} + \kappa(\alpha - x) V_x - \beta V +f(s) V_s . 
+\end{equation*}
+As a conclusion, the HJB equation can be written as
+\begin{equation*}
+  \max \{\mathcal{L} V, -V_q + e^x - \mu(q), V_q -e^x - \lambda(q)\} = 0.
+\end{equation*}
+
+\newpage
+
+\section{Solve $\mathcal{L}V = 0$.}
+Assume $V(x,s,q) = g(x,q)h(s)$. When $s = 0$, there is no seasonal factor at all. In this case, we should have $h(0) = 1$. Plug it into $\mathcal{L} V = 0$ to have
+\begin{equation*}
+  h\left(\frac{1}{2} \sigma^2 g_{xx} + \kappa (\alpha - x) g_x - \beta g\right) + f(s) g h' = 0.
+\end{equation*}
+We can rearrange it as
+\begin{equation*}
+  \frac{\frac{1}{2} \sigma^2 g_{xx}(x,q) + \kappa (\alpha - x) g_x(x,q) - \beta g(x,q)}{g(x,q)} = \frac{-f(s) h'(s)}{h(s)}.
+\end{equation*}
+The left hand side is a function of $x$ and $q$ while the right hand side is a function of $s$. Therefore, the only possibility is that both are the same constant, denoted as $\eta$.
+\begin{equation*}
+\begin{split}
+  &\frac{1}{2} \sigma^2 g_{xx}(x,q) + \kappa (\alpha - x) g_x(x,q) - (\beta + \eta) g(x,q) = 0\\
+  &f(s) h'(s) + \eta h(s) = 0 \quad h(0) = 1
+\end{split}
+\end{equation*}
+The solution to the second ODE is 
+\begin{equation}\label{Equation_h}
+  h(s) = \exp(-\eta \int_{0}^{s} \frac{1}{f(y)}dy)
+\end{equation}
+
+If we have $S(t) = \sin(t)$, then 
+\begin{equation*}
+	f(S(t)) = S'(t) = \cos(t) =  \sqrt{1-\sin(t)^2}   = \sqrt{1-S(t)^2}.
+\end{equation*}
+Namely, $f(s) = \sqrt{1-s^2}$. Substitute this back into equation (\ref{Equation_h}) to have
+\begin{equation*}
+  h(s) = \exp(-\eta \arcsin(s))
+\end{equation*}
+
+\textbf{One boundary condition is missing!} Assume we will hold on the line $x = x_0,~q = q_0$. Without another boundary condition, it is impossible to calculate $\eta$. It is not like on the line $x = x_0,~s = s_0$. Because it is impossible to buy (sell) when the facility is full (empty), the number of the boundary conditions are the same as the number of unknown variables.
+
+\newpage
+\section{A Question about Policy \& Value Iteration}
+
+In the case without seasonality, we construct a Markov chain from the holding profit, 
+\begin{equation*}
+  \frac{1}{2}\sigma^2 V_{xx} + \kappa(\alpha - x) V_x - \beta V.
+\end{equation*}
+
+Firstly, we find an approximation of above expression. For example, in the case $x\geq \alpha$,
+\begin{equation*}
+\begin{split}
+  &\frac{1}{2}\sigma^2 \frac{V(x+dx) - 2V(x) + V(x-dx)}{dx^2} + \kappa(\alpha - x) \frac{V(x) - V(x-dx)}{dx} - \beta V(x)\\
+  = & \frac{1}{2}\frac{\sigma}{dx^2} V(x+dx) + \left(\frac{1}{2}\frac{\sigma^2}{dx^2} + \frac{\kappa(x-\alpha)}{dx}\right)V(x-dx) - \left(\frac{\sigma^2}{dx^2} + \frac{\kappa(x-\alpha)}{dx} + \beta\right)V(x)
+\end{split}
+\end{equation*}
+Next, from this approximation, we set the transition probability of the Markov chain from $x$ to $x+dx$ as 
+\begin{equation*}
+  p_+ = \frac{\frac{1}{2}\frac{\sigma}{dx^2}}{\frac{\sigma^2}{dx^2} + \frac{\kappa(x-\alpha)}{dx} + \beta},
+\end{equation*}
+and from $x$ to $x-dx$ as
+\begin{equation*}
+  p_- = \frac{\frac{1}{2}\frac{\sigma^2}{dx^2} + \frac{\kappa(x-\alpha)}{dx}}{\frac{\sigma^2}{dx^2} + \frac{\kappa(x-\alpha)}{dx} + \beta}.
+\end{equation*}
+
+In this case, the sum of $p_+$ and $p_-$ is
+\begin{equation*}
+  p_+ + p_- =  \frac{\frac{\sigma^2}{dx^2} + \frac{\kappa(x-\alpha)}{dx}}{\frac{\sigma^2}{dx^2} + \frac{\kappa(x-\alpha)}{dx} + \beta},
+\end{equation*}
+
+
+\textbf{which is not 1.} Is it OK? How to understand it?
+
+\section{A Question about the Storage Contract}
+\begin{itemize}
+  \item Start Date: 19th December 2012
+  \item End Date: 18th December 2013
+  \item Initial Inventory Level: 0
+  \item Final Inventory Level: 0
+  \item Capacity: 29.3 GWh
+  \item Max Injection/Withdrawal: 1.465 GWh per day
+  \item Underlying Gas Price: NBP (National Balancing Point) pence/therm
+\end{itemize}
+
+
+
+Is it a contract that enables one to use the storage facility?
+
+
+
+
+
+\end{document}
+

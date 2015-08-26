@@ -1,0 +1,205 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+
+
+\documentclass[paper=a4, fontsize=15pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage{amssymb}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{float}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{listings}
+\usepackage{color}
+\usepackage{fancyhdr} % Custom headers and footers
+\usepackage{multicol}
+\usepackage{subcaption} %Insert multicolumns plots
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\usepackage{tikz} %the most complex and powerful tool to create graphic elements in LATEX
+\usepackage{url}
+\usetikzlibrary{matrix,arrows,fit}
+\tikzset{circarrow/.style={
+        *->,
+        shorten <=-2pt
+    }
+}
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Matlab,                 % the language of the code
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+ tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%    TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\PP}{\mathcal{P}}
+
+%\title{    
+%\normalfont \normalsize 
+%\textsc{UT Austin, Mccombs Business School} \\ [25pt] % Your university, school and/or department name(s)
+%\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+%\huge Homework 4 for Network Optimization\\ % The assignment title
+%\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+%}
+
+%\author{Long Zhao lz4786} % Your name
+
+%\date{\normalsize\today} % Today's date or a custom date
+
+%\graphicspath{{/Users/zhaolong/Google Drive/Network Optimization/Homework1}}
+
+\begin{document}
+
+%\maketitle % Print the title
+\section{Separation of variables}
+Assume $V(x,s,q) = g(x,q)h(s)$. When $s = 0$, there is no seasonal factor at all. In this case, we should have $h(0) = 1$. Plug it into $\mathcal{L} V = 0$ to have
+\begin{equation*}
+  h\left(\frac{1}{2} \sigma^2 g_{xx} + \kappa (\alpha - x) g_x - \beta g\right) + f(s) g h' = 0.
+\end{equation*}
+We can rearrange it as
+\begin{equation*}
+  \frac{\frac{1}{2} \sigma^2 g_{xx}(x,q) + \kappa (\alpha - x) g_x(x,q) - \beta g(x,q)}{g(x,q)} = \frac{-f(s) h'(s)}{h(s)}.
+\end{equation*}
+The left hand side is a function of $x$ and $q$ while the right hand side is a function of $s$. Therefore, the only possibility is that both are the same constant, denoted as $\eta$.
+\begin{equation*}
+\begin{split}
+  &\frac{1}{2} \sigma^2 g_{xx}(x,q;\eta) + \kappa (\alpha - x) g_x(x,q;\eta) - (\beta + \eta) g(x,q;\eta) = 0\\
+  &f(s) h'(s;\eta) + \eta h(s;\eta) = 0 \quad h(0;\eta) = 1
+\end{split}
+\end{equation*}
+The solution to the second ODE is 
+\begin{equation}\label{Equation_h}
+  h(s;\eta) = \exp(-\eta \int_{0}^{s} \frac{1}{f(y)}dy)
+\end{equation}
+
+If we have $S(t) = \sin(t)$, then 
+\begin{equation*}
+	f(S(t)) = S'(t) = \cos(t) =  \sqrt{1-\sin(t)^2}   = \sqrt{1-S(t)^2}.
+\end{equation*}
+Namely, $f(s) = \sqrt{1-s^2}$. Substitute this back into equation (\ref{Equation_h}) to have
+\begin{equation*}
+  h(s;\eta) = \exp(-\eta \arcsin(s)).
+\end{equation*}
+As a result,
+\begin{equation*}
+\begin{split}
+  \eta = -\frac{\log(h(s;\eta))}{\arcsin(s)}.
+\end{split}
+\end{equation*}
+On the other hand,
+\begin{equation*}
+\begin{split}
+  g(x,q;\eta) = aU(x,q;\eta) + bM(x,q;\eta).
+\end{split}
+\end{equation*}
+$a,~b$ should be determined by the boundary conditions. If we already know $b=0$, then we have 
+\begin{equation*}
+\begin{split}
+  &g(x,q;\eta) = bM(x,q;\eta) \\
+  &\Rightarrow g(x,q;-\frac{\log(h(s;\eta))}{\arcsin(s)}) = bM(x,q;-\frac{\log(h(s;\eta))}{\arcsin(s)})
+\end{split}
+\end{equation*}
+
+
+
+\section{Holding when full or empty}
+Notice that when empty (full), we will always hold when price is high (low). Because discretization of $V_{xx}$ needs two boundary conditions, we need another boundary condition except the buying (selling) boundary condition. Without seasonality, by solving
+\begin{equation*}
+\begin{split}
+  \frac{1}{2} \sigma^2 V_{xx} + \kappa(\alpha - x) V_x - \beta V = 0
+\end{split}
+\end{equation*}
+analytically and the using finiteness, we have 
+\begin{equation*}
+\begin{split}
+  \frac{V(x_1,0)}{V(x_2,0)} = \frac{U\left(\kappa/\sigma^2(x_1-\alpha)^2\right)}{U\left(\kappa/\sigma^2(x_1-\alpha)^2\right)}
+\end{split}
+\end{equation*}
+With seasonality, we don't have this boundary condition any more. Rearrange
+\begin{equation*}
+\begin{split}
+  \frac{1}{2} \sigma^2 V_{xx} + \kappa(\alpha - x) V_x - \beta V +f(s) V_s = 0,
+\end{split}
+\end{equation*}
+as
+\begin{equation*}
+\begin{split}
+  V_x = -\frac{\frac{1}{2} \sigma^2 V_{xx} - \beta V +f(s) V_s}{\kappa(\alpha - x)}.
+\end{split}
+\end{equation*}
+If $V_{xx}$, $V_s$ is bounded, then when $|x|$ is large enough, we have $V_x$ is approximately 0. However, if we use this formulation, the linear system turns out to have no solution at all. Therefore, we need to modify it using monotonicity.
+
+\section{Dam}
+Only the difference between the water levels matters. If we assume that the rain and vaporization are uniformly distributed, then none of them will affect the difference as long as none of them being full or empty. Denote the height difference as $q$. The injecting transaction cost $\lambda(q)$ should be 
+\begin{equation*}
+\begin{split}
+  \lambda(q) = cq.
+\end{split}
+\end{equation*}
+The rainfall only changes the upper bound.\\
+
+
+\end{document}
+

@@ -16,7 +16,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%    PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
 \documentclass[a4paper, 11pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
@@ -54,7 +54,7 @@
 %}
 
 %----------------------------------------------------------------------------------------
-%	TITLE
+%    TITLE
 %----------------------------------------------------------------------------------------
 
 %\title{\textbf{Unnecessarily Long Essay Title}\\ % Title
@@ -72,7 +72,7 @@
 %\maketitle % Print the title section
 
 %----------------------------------------------------------------------------------------
-%	ABSTRACT AND KEYWORDS
+%    ABSTRACT AND KEYWORDS
 %----------------------------------------------------------------------------------------
 
 %\renewcommand{\abstractname}{Summary} % Uncomment to change the name of the abstract to something else
@@ -86,15 +86,15 @@
 %\vspace{30pt} % Some vertical space between the abstract and first section
 
 %----------------------------------------------------------------------------------------
-%	ESSAY BODY
+%    ESSAY BODY
 %----------------------------------------------------------------------------------------
 
 \section{Introduction}
-Valuing storage is a problem of significant interest in recent years, especially for energy-related commodities. Without storage, in environment with either relatively stable supply and fluctuating demand, or relatively stable demand and fluctuating supply, prices vary significantly over time. This price variation generates an incentive to shift supply from a period where it is in excess, to a period where it is in shortage. Storage derives its economic value from exploiting these predictable price fluctuations by shifting supply over time.
+Valuing storage is a problem of significant interest in recent years, especially for energy-related commodities. Without storage, in an environment with either relatively stable supply and fluctuating demand, or relatively stable demand and fluctuating supply, prices vary significantly over time. This price variation generates an incentive to shift supply from a period where it is in excess, to a period where it is in shortage. Storage derives its economic value from exploiting these predictable price fluctuations by shifting supply over time.
 
 Overview of storage valuation literature.
 
-In this paper, we study the problem of valuing storage specifically for the case of energy commodities. We are able to develop semi-analytical framework to price storage, allowing for mean-reverting price dynamics for the commodity, and general injection and withdrawal costs. Our framework is a generalization of the moving boundary method, described in \cite{}.
+In this paper, we study the problem of valuing storage specifically for the case of energy commodities. We can develop a semi-analytical framework to price storage, allowing for mean-reverting price dynamics for the commodity, and general injection and withdrawal costs. Our framework is a generalization of the moving boundary method, described in \cite{}.
 
 Overview of moving boundary method.
 
@@ -115,12 +115,12 @@ Take $X_t = \log(S_t)$, by Ito's formula,
 
 where $\alpha = \gamma - \frac{\sigma^2}{2\kappa}$.\\ 
 
-Denote the total amount of the commodity in the storage facility at time $t$ as $Q_t$. Also, denote cumulative amounts of commodity purchased and sold up to time $t$ as $L_t$ and $U_t$, respectively. Here and after, buy and injection have the same meaning, so do sell and withdrawal. By definition, $L_t$ and $U_t$ are non-negative monotone cadlag processes, and 
-	\begin{equation}\label{Eq:QLU}
-	\begin{split}
-	  Q_t = Q_0 + L_t - U_t.
-	\end{split}
-	\end{equation}
+Denote the total amount of the commodity in the storage facility at time $t$ as $Q_t$. Also, denote cumulative amounts of the commodity purchased and sold up to time $t$ as $L_t$ and $U_t$, respectively. Here and after, buy and injection have the same meaning, so do sell and withdrawal. By definition, $L_t$ and $U_t$ are non-negative monotone cadlag processes, and 
+    \begin{equation}\label{Eq:QLU}
+    \begin{split}
+      Q_t = Q_0 + L_t - U_t.
+    \end{split}
+    \end{equation}
 Implied by (\ref{Eq:QLU}), $Q_t$ is of bounded variation.
 
 The decisions are when and how much shall be injected and withdrawn from the facility. In other words, every decision can be represented as a pair $(L_t,U_t)$. An admissible control policy $(L_t,U_t)$ must satisfy that the storage level at any time is within capabilities. That is to say, $Q_t \in [Q_{\min},Q_{\max}]$ for all $t$ where $Q_{\min}$ and $Q_{\max}$ are the upper and lower capability respectively. We use $\mathcal{U}$ to denote all admissible policies.\\
@@ -129,10 +129,10 @@ The decisions are when and how much shall be injected and withdrawn from the fac
 %  dQ_t = dL_t - dU_t.
 %\end{equation}
 
-Both injection and withdrawal generate costs. As a result, injection and withdrawal won't take place at the same time. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ unit. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{Q_{t-}}^{Q_{t}} \lambda(q) dq$ and $\int_{Q_{t}}^{Q_{t-}} \mu(q) dq$ respectfully.
+Both injection and withdrawal generate costs. As a result, injection and withdrawal won't take place at the same time. Let $\lambda(q)$ and $\mu(q)$ be the instantaneous costs of injection and withdrawal when the storage has $q$ units. Therefore, the costs of injection and withdrawal at time $t$ should be $\int_{Q_{t-}}^{Q_{t}} \lambda(q) dq$ and $\int_{Q_{t}}^{Q_{t-}} \mu(q) dq$ respectfully.
 
 %todo: This part may not be necessary.
-It is often easier to inject (withdraw) when empty (full) than full (empty). Therefore we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing. To be economic meaningful, we also assume that $\lambda(q)$ and $\mu(q)$ are bounded.\\
+It is often easier to inject (withdraw) when empty (full) than full (empty). Therefore, we assume that $\lambda(q)$ is increasing with respect to $q$ while $\mu(q)$ is decreasing. To be economic meaningful, we also assume that $\lambda(q)$ and $\mu(q)$ are bounded.\\
 
 We define the discounted infinite-horizon cash flows w.r.t. an admissible control policy $(L_t,U_t)$ as
 \begin{equation}\label{Eq:V_LU}
@@ -170,7 +170,7 @@ In other words, the maximum value that a facility manager can obtain from a stor
 
 Bellman's principle of optimality together with It\^o's formula are commonly used to develop the necessary conditions of the optimal value function. Those necessary conditions are often called Hamilton-Jacobi-Bellman (HJB) equations.
 
-%todo: rewrite the following paragraph because it is copied from Haoling's paper.
+%todo: Rewrite the following paragraph because it is copied from Haoling's paper.
 
 The intuition behind the Bellman's principle of optimality is that if at time zero we use an arbitrary control for an infinitesimal amount of time, and immediately switch to the optimal control, then the resulting value function cannot be larger than the optimal one. Suppose for now that an optimal control exists, and denote it by $(L^*_t,U^*_t)$. Then, if we choose not to act during $t\in [0,\Delta t)$, for some small $\Delta t>0$ and then switch to the optimal policy $(L^*_t,U^*_t)$ thereafter, we will have
 
@@ -190,7 +190,7 @@ Letting $\Delta t \rightarrow 0$, assuming sufficient smoothness of $V(\cdot,\cd
 Where $V_{x}$ ($V_{q}$) denotes the partial differential of $V$ with respect to $x$ ($q$), and $V_{xx}$ represents $\frac{\partial^2 V}{(\partial x)^2}$.
 
 
-Next, say we choose to instantaneously withdraw a small amount, $\Delta q$ and follow the optimal policy $(\hat{L}_t,\hat{U}_t)$ thereafter, we will have
+Next, say we choose to withdraw a small amount, $\Delta q$， instantaneously  and follow the optimal policy $(\hat{L}_t,\hat{U}_t)$ after that, we will have
 \begin{equation*}
 \begin{split}
   V(x,q) \geq V(x,q-\Delta q) + \int_{q}^{q+\Delta q}(e^x - \mu(l))dl.
@@ -219,7 +219,7 @@ Introduce the following three operators,
 \end{equation}
 
 
-Intuitively one of the three actions (holding, withdrawal and injection) should be optimal, thus the value function $V(x,q)$ is expected to satisfy the HJB equation
+Intuitively one of the three actions (holding, withdrawal and injection) should be optimal. Thus the value function $V(x,q)$ is expected to satisfy the HJB equation
 \begin{equation}\label{HJB}
   \max \left[ \mathcal{L} V(x,q),\mathcal{S}V(x,q),\mathcal{B}V(x,q)\right] = 0.
 \end{equation}
@@ -232,27 +232,27 @@ In the next section, we will prove that HJB equation is sufficient as long as ce
 \subsection{Verification Theorem}
 
 \begin{Theorem}
-	Suppose $f(x,q) \in C^{2,1}(\mathbb{R} \times \mathbb{R})$ and both $f$ and $f_x$ are bounded. If $f$ satisfies 
-	\begin{equation}\label{Eq:3max<=0}
-	\begin{split}
-		\max\left(\mathcal{L}f,\mathcal{B}f,\mathcal{S}f\right)(x,q) = 0,\quad (x,q)\in\mathbb{R}^2	,
-	\end{split}
-	\end{equation}
-	we have
-	\begin{equation*}
-	\begin{split}
-		f(x,q) = V(x,q),
-	\end{split}
-	\end{equation*}
-	where $V(x,q)$ is defined in (\ref{Eq:V(x,q)}).
+    Suppose $f(x,q) \in C^{2,1}(\mathbb{R} \times \mathbb{R})$ and both $f$ and $f_x$ are bounded. If $f$ satisfies 
+    \begin{equation}\label{Eq:3max<=0}
+    \begin{split}
+        \max\left(\mathcal{L}f,\mathcal{B}f,\mathcal{S}f\right)(x,q) = 0,\quad (x,q)\in\mathbb{R}^2    ,
+    \end{split}
+    \end{equation}
+    we have
+    \begin{equation*}
+    \begin{split}
+        f(x,q) = V(x,q),
+    \end{split}
+    \end{equation*}
+    where $V(x,q)$ is defined in (\ref{Eq:V(x,q)}).
 \end{Theorem}
 
 \begin{proof}
 Because of (\ref{Eq:QLU}) and the monotonicity of processes $L_t$ and $U_t$, $Q_t$ is of finite variation. Combined with the assumption that $f \in C^{2,1}(\mathbb{R}\times \mathbb{R})$, we are able to use Ito's formula from (Protter 2005) to have
 \begin{equation*}
 \begin{split}
-	e^{-\beta t} f(X_t,Q_t) - f(x,q) &= \int_{0}^t e^{-\beta s} \mathcal{L}f(X_s,Q_{s-})ds + \int_{0}^t e^{-\beta s} f_x(X_s,Q_{s-})dW_s \\
-	&+ \int_{0}^{t} e^{-\beta s} f_q(X_s,Q_{s-}) dQ_s^c + \sum_{0\leq s\leq t}\left(e^{-\beta s} f(X_s,Q_s) - e^{-\beta s} f(X_s,Q_{s-})\right),  
+    e^{-\beta t} f(X_t,Q_t) - f(x,q) &= \int_{0}^t e^{-\beta s} \mathcal{L}f(X_s,Q_{s-})ds + \int_{0}^t e^{-\beta s} f_x(X_s,Q_{s-})dW_s \\
+    &+ \int_{0}^{t} e^{-\beta s} f_q(X_s,Q_{s-}) dQ_s^c + \sum_{0\leq s\leq t}\left(e^{-\beta s} f(X_s,Q_s) - e^{-\beta s} f(X_s,Q_{s-})\right),  
 \end{split}
 \end{equation*}
 where $X_0 = x$, $Q_{0-} = q$ and $Q_{\cdot}^c$ is the continuous part of $Q_{\cdot}$. This equation is valid for arbitrary $Q_t$ that satisfies (\ref{Eq:QLU}). Because both $f$ and $f_x$ are bounded, we can take expectation to both sides and then take $t \rightarrow \infty$,
@@ -321,7 +321,7 @@ It is worth notice that the optimal policy $(L^*_t,U^*_t)$ is totally determined
 \subsection{Search Space}
 If $\mathbb{R}^2$ is divided into holding region, H, selling region, S, and buying region, B, we can derive a related strategy $(L_t,U_t)$ following the rules that sell in S, buy in B, and hold in H. We call $(H,S,B)$ a region triplet and we also use it to represent related strategy.
 
-\begin{Theorem}
+\begin{Theorem}\label{Th:fix}
 Let $v$ be the solution to
 \begin{equation*}
 \begin{split}
@@ -337,11 +337,11 @@ where $(H,S,B)$ is a region triplet. If $v \in C^{2,1}(\mathbb{R}\times\mathbb{R
 Let $(L_t,U_t)$ be the respective strategy w.r.t $(H,S,B)$ and we have
 \begin{equation*}
 \begin{split}
-	&(X_t,Q_{t-}) \in H \quad \forall t >0\\
-	&(X_t,Q_{t-}) \in \partial B \Leftrightarrow dL_t^c \neq 0\\
-	&(X_t,Q_{t-}) \in \partial S \Leftrightarrow dU_t^c \neq 0\\
-	&(X_t,Q_{t-}) \in B^o \Leftrightarrow \Delta L_t \neq 0\\
-	&(X_t,Q_{t-}) \in S^o \Leftrightarrow \Delta U_t \neq 0\\
+    &(X_t,Q_{t-}) \in H \quad \forall t >0\\
+    &(X_t,Q_{t-}) \in \partial B \Leftrightarrow dL_t^c \neq 0\\
+    &(X_t,Q_{t-}) \in \partial S \Leftrightarrow dU_t^c \neq 0\\
+    &(X_t,Q_{t-}) \in B^o \Leftrightarrow \Delta L_t \neq 0\\
+    &(X_t,Q_{t-}) \in S^o \Leftrightarrow \Delta U_t \neq 0\\
 \end{split}
 \end{equation*}
 
@@ -373,18 +373,18 @@ Here the solution to the fixed boundary problem is denoted as $V^{n}(x,q)$.
   \begin{enumerate}
   \item Calculate the value function $V^{n}(x,q)$.
   \item If the maximal selling profit is positive, $max_{x}\mathcal{S}V^{n}(x,q)>0$, then set the selling region $S^{n+1} = \{(x,q)|x\geq x_s^{n+1}(q)\}$ where 
-	\begin{equation*}
+    \begin{equation*}
       x_s^{n+1}(q) = \arg\max_{x} \mathcal{S}V^{n}(x,q) 
     \end{equation*}
   \item If the maximal buying profit is positive, $max_{x}\mathcal{B}V^{n}(x,q)>0$, then set the buying region $B^{n+1} = \{(x,q)|x_l^{n+1}(q)\leq x\leq x_u^{n+1}(q)\}$. There are two possibilities.
   \begin{enumerate}
   \item Buying region is empty at iteration $n$.
-  	\begin{equation*}
+      \begin{equation*}
       x_l^{n+1}(q) = x_u^{n+1}(q) =\arg \max_{x} \mathcal{B}V^{n}(x,q).
     \end{equation*}
   
   \item Buying region is not empty at iteration $n$. 
-	\begin{equation*}
+    \begin{equation*}
     \begin{split}
         x_u^{n+1}(q) &= \arg\max_{x\geq x_u^{n}(q)} \mathcal{B}V^{n+1}(x,q),\\
         x_l^{n+1}(q) &= \arg\max_{x\leq x_l^{n}(q)} \mathcal{B}V^{n+1}(x,q).
@@ -398,12 +398,12 @@ Here the solution to the fixed boundary problem is denoted as $V^{n}(x,q)$.
   \end{enumerate}
 \end{enumerate}
 
-In order to show this algorithm works, four things need to be proved.
+To show this algorithm works, four things need to be proved.
 \begin{enumerate}
   \item The existence of $M_0$.
   \item $V^{n}$ is monotone increasing.
   \item The boundaries can keep moving.
-  \item The convergence function is the optimal.
+  \item The convergence function is optimal.
 \end{enumerate}
 
 
@@ -512,7 +512,7 @@ The algorithm guarantees the monotonicity of $H^n,~S^n$ and $B^n$, that is to sa
 \end{split}  
 \end{equation}
 
-By Feynman-Kac formula, $\Delta V^{n+1}$ is the value function with regions triplet $(H^n,S^n,B^n)$ and positive selling profit and negative buying cost \footnote{It means that one can increase the volume in the storage and make a profit at the same time.}. As a result, for every regions triplet, the value function is positive, namely $\Delta V^{n+1} > 0$.
+By Theorem (\ref{Th:fix}), $\Delta V^{n+1}$ is the value function w.r.t regions triplet $(H^n,S^n,B^n)$ and positive selling profit and negative buying cost \footnote{It means that one can increase the volume in the storage and make a profit at the same time.}. As a result, for every regions triplet, the value function is positive, namely $\Delta V^{n+1} > 0$.
 
 \end{proof}
 
@@ -525,12 +525,12 @@ If $\mathcal{L}f(x) = 0,~l\leq x \leq u$ and $f(l) <0, f(u) >0$, $f(u)$ is the m
 \end{Lemma}
 \begin{proof}
 Assume $u$ is not the maximum, then $f$ must achieve the maximum at an interior point, denoted as $x_M$. Thus $f(x_M)> f(u)>0$, $f'(x_M) =0$, and $f''(x_M) \leq 0$. By $\mathcal{L}f(x_M) = 0$, 
-	\begin{equation*}
-	\begin{split}
-  		&\frac{1}{2}\sigma^2f''(x_M) + \kappa(\alpha - x_M)f'(x_M) - \beta f(x_M) = 0\\
-  		\Rightarrow~& 0< \beta f(x_M) = \frac{1}{2}\sigma^2f''(x_M) + \kappa(\alpha - x_M)f'(x_M) \leq 0
-	\end{split}
-	\end{equation*}
+    \begin{equation*}
+    \begin{split}
+          &\frac{1}{2}\sigma^2f''(x_M) + \kappa(\alpha - x_M)f'(x_M) - \beta f(x_M) = 0\\
+          \Rightarrow~& 0< \beta f(x_M) = \frac{1}{2}\sigma^2f''(x_M) + \kappa(\alpha - x_M)f'(x_M) \leq 0
+    \end{split}
+    \end{equation*}
 Contradiction! We can use the similar argument to prove $f(l)$ is the minimum.
 \end{proof}
 
@@ -550,7 +550,14 @@ When $x_u^{n+1}(q)$ and $x_l^{n+1}(q)$ don't exist, we assume the last two inequ
 
 \begin{proof} 
 Introduce function $f(x) = \Delta V_q^{n+1}(x,q)$ with any fixed storage level $q$. 
-Differentiate (\ref{dV})the first equation with respect to $q$, we have $\mathcal{L} f(x) = 0$, $x_u^{n+1}(q) \leq x \leq x_s^{n+1}(q)$. By Lemma (\ref{maxi1}), $f(x)$ achieves its maximum at point $x_s^{n+1}(q)$. Therefore $f'(x_s^{n+1}(q)) > 0$ or  $f'(x_s^{n+1}(q)) = 0$. Because $\LL f(x_s^{n+1}(q)) = 0$, if the latter is true, then we have $0<\beta f(x_s^{n+1}(q)) = \frac{1}{2}\sigma^2 f''(x_s^{n+1}(q))\leq 0$ which is a contradiction. As a result, we proved that $f'(x_s^{n+1}(q)) > 0$.
+Differentiate (\ref{dV})the first equation with respect to $q$, we have 
+\begin{equation*}
+\begin{split}
+  \mathcal{L} f(x) = 0,\quad x_u^{n+1}(q) \leq x \leq x_s^{n+1}(q)
+\end{split}
+\end{equation*}
+
+By Lemma (\ref{maxi1}), $f(x)$ achieves its maximum at point $x_s^{n+1}(q)$. Therefore $f'(x_s^{n+1}(q)) > 0$ or  $f'(x_s^{n+1}(q)) = 0$. If the latter is true, from $\LL f(x_s^{n+1}(q)) = 0$, we have $0<\beta f(x_s^{n+1}(q)) = \frac{1}{2}\sigma^2 f''(x_s^{n+1}(q))\leq 0$ which is a contradiction. As a result, we proved that $f'(x_s^{n+1}(q)) > 0$.
 \begin{equation}\label{EqKeepMove}
 \begin{split}
 &(\Delta V_q^{n+1})_x(x_s^{n+1}(q),q) = f'(x_s^{n+1}(q)) > 0\\
